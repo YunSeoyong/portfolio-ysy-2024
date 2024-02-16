@@ -6,6 +6,15 @@
 }
 
 /* 공통값 */
+:root {
+    --font-size-lg: clamp(3rem, 10vw, 12rem);
+    --font-size-md: clamp(2rem, 4vw, 5rem);
+    --font-size-sm: clamp(1rem, 2vw, 24px);
+    --main-blue: #3498E0;
+    --sub-blue: #74BBEF;
+    --main-yellow: #ffc219;
+}
+
 .hide {
     display: block;
     width: 0;
@@ -13,4 +22,10 @@
     overflow: hidden;
     opacity: 0;
     color: transparent;
+}
+
+.aa {
+    transform: translate() scaleY();
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
 }
