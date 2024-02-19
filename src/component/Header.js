@@ -105,7 +105,7 @@ const HeaderWrap = styled.header`
             };
             // 768 끝
             // 1024 시작
-            @media screen and (min-width:1024px) {
+            @media screen and (min-width:1200px) {
 
             }
             // 1024 끝

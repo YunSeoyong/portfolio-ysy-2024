@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import './App.css';
+import { ResizedProvider } from './hooks/ResizedContext';
 import Header from './component/Header';
 import Intro from './pages/Intro';
 
+
+
 function App() {
     return (
-        <div className="App">
-            <Main id='main'>
-                <Header />
-                <Intro />
-            </Main>
-        </div>
+        <ResizedProvider>
+            <div className="App">
+                <Main id='main'>
+                    <Header />
+                    <Intro />
+                </Main>
+            </div>
+        </ResizedProvider>
     );
 }
 

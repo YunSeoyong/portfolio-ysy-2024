@@ -7,7 +7,7 @@
 
 /* 공통값 */
 :root {
-    --font-size-lg: clamp(3rem, 10vw, 12rem);
+    --font-size-lg: clamp(3.3rem, 10vw, 12rem);
     --font-size-md: clamp(2rem, 4vw, 5rem);
     --font-size-sm: clamp(1rem, 2vw, 24px);
     --main-blue: #3498E0;
