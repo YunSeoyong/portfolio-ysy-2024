@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { useResizedApi } from "../hooks/ResizedContext";
 
 
 const rotateAnimation = keyframes`
@@ -11,10 +10,10 @@ const rotateAnimation = keyframes`
     }
 `;
 
-const Intro = () => {
+const MainTitle = () => {
 
     return (
-        <IntroWrap id="Intro">
+        <MainTitleWrap id="MainTitle">
             <BgSvg>
                 <div className="hexa_big">
                     <img src="/assets/svg/hexa-big.svg" alt="hexa-big" />
@@ -26,7 +25,7 @@ const Intro = () => {
                     <img src="/assets/svg/hexa-sml.svg" alt="hexa-sml" />
                 </div>
             </BgSvg>
-            <IntroIn>
+            <MainTitleIn>
                 <div className="ment">
                     <p><span>육각형</span> 개발자가 되기 위해 노력중인</p>
                     <p>신입 프론트엔드 개발자 <span>윤서용</span>입니다.</p>
@@ -35,14 +34,14 @@ const Intro = () => {
                     <p className="fe">FRONTEND</p>
                     <p className="pr">PORTFOLIO</p>
                 </div>
-            </IntroIn>
-        </IntroWrap>
+            </MainTitleIn>
+        </MainTitleWrap>
     );
 };
 
-export default Intro;
+export default MainTitle;
 
-const IntroWrap = styled.section`
+const MainTitleWrap = styled.section`
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -147,7 +146,7 @@ const BgSvg = styled.div`
         };
     };
 `;
-const IntroIn = styled.div`
+const MainTitleIn = styled.div`
     position: relative;
     height: 100%;
     margin: 0 14px;

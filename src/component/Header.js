@@ -22,7 +22,7 @@ const Header = () => {
     return (
         <HeaderWrap>
             <div className="headerIn">
-                <h1 id="logo" className="russo-one-regular"><a href="#main">SEOYONG</a></h1>
+                <h1 id="logo" className="russo-one-regular"><a href="#MainTitle">SEOYONG</a></h1>
                 <div className="sideMenu" ref={menuRef}>
                     <p
                         className="moNavBtn"
