@@ -43,7 +43,6 @@ export default MainTitle;
 
 const MainTitleWrap = styled.section`
     position: relative;
-    width: 100vw;
     height: 100vh;
     max-height: 1080px;
     overflow: hidden;
@@ -54,6 +53,7 @@ const BgSvg = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: hidden;
 
     .hexa_big {
         position: absolute;

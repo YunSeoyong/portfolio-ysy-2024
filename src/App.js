@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import './App.css';
 import { ResizedProvider } from './hooks/ResizedContext';
 import Header from './component/Header';
+import MainTitle from './pages/MainTitle';
 import Intro from './pages/Intro';
 
 
@@ -13,6 +14,7 @@ function App() {
                 <Main id='main'>
                     <Header />
                     <MainTitle />
+                    <Intro />
                 </Main>
             </div>
         </ResizedProvider>
