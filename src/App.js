@@ -12,7 +12,7 @@ function App() {
             <div className="App">
                 <Main id='main'>
                     <Header />
-                    <Intro />
+                    <MainTitle />
                 </Main>
             </div>
         </ResizedProvider>
