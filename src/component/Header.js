@@ -22,7 +22,7 @@ const Header = () => {
     return (
         <HeaderWrap>
             <div className="headerIn">
-                <h1 id="logo" className="russo-one-regular"><a href="#main">YSY</a></h1>
+                <h1 id="logo" className="russo-one-regular"><a href="#main">SEOYONG</a></h1>
                 <div className="sideMenu" ref={menuRef}>
                     <p
                         className="moNavBtn"
@@ -104,11 +104,11 @@ const HeaderWrap = styled.header`
                 }
             };
             // 768 끝
-            // 1024 시작
+            // 1200 시작
             @media screen and (min-width:1200px) {
 
             }
-            // 1024 끝
+            // 1200 끝
             // 1600 시작
             @media screen and (min-width:1600px) {
                 width: 1560px;

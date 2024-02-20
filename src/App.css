@@ -25,6 +25,8 @@
 }
 
 .aa {
+    position: absolute;
+    bottom: initial;
     transform: translate() scaleY();
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
