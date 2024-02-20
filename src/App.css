@@ -1,38 +1,33 @@
+@charset "utf-8";
+
 .App {
-  text-align: center;
+    position: relative;
+    width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 공통값 */
+:root {
+    --font-size-lg: clamp(3.3rem, 10vw, 12rem);
+    --font-size-md: clamp(2rem, 4vw, 5rem);
+    --font-size-sm: clamp(1rem, 2vw, 24px);
+    --main-blue: #3498E0;
+    --sub-blue: #74BBEF;
+    --main-yellow: #ffc219;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hide {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.aa {
+    position: absolute;
+    bottom: initial;
+    transform: translate() scaleY();
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
 }
