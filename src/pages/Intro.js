@@ -113,7 +113,7 @@ const IntroIn = styled.div`
     @media screen and (min-width:1600px){
         width: 1560px;
         margin: 0 auto;
-        padding: 14% 0;
+        padding: 10% 0;
 
         .bgTitle{
             top: 280px;
