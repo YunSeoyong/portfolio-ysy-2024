@@ -4,6 +4,7 @@ import { ResizedProvider } from './hooks/ResizedContext';
 import Header from './component/Header';
 import MainTitle from './pages/MainTitle';
 import Intro from './pages/Intro';
+import Skill from './pages/Skill';
 
 
 
@@ -15,6 +16,7 @@ function App() {
                     <Header />
                     <MainTitle />
                     <Intro />
+                    <Skill />
                 </Main>
             </div>
         </ResizedProvider>
