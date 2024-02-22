@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ProjectComp from "../component/ProjectComp";
 
 const Portfolio = () => {
     return (
@@ -6,7 +7,7 @@ const Portfolio = () => {
             <PortfolioIn>
                 <h2 className="bgTitle russo-one-regular">Portfolio</h2>
                 <div className="container">
-                    
+                    <ProjectComp />
                 </div>
             </PortfolioIn>
         </section>
