@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Intro = () => {
     return (
-        <IntroWrap>
+        <IntroWrap id="Intro">
             <IntroIn>
                 <h2 className="bgTitle russo-one-regular">Intro</h2>
                 <div className="content">

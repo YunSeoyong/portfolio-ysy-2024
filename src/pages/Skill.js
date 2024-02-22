@@ -70,9 +70,9 @@ const Skill = () => {
     };
 
     return (
-        <SkillWrap>
+        <SkillWrap id="Skill">
             <SkillIn>
-                <div className="bgTitle russo-one-regular">Skill</div>
+                <h2 className="bgTitle russo-one-regular">Skill</h2>
                 <div className="content">
                     <div className="hexagon">
                         {
