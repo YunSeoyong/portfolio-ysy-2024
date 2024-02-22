@@ -24,6 +24,10 @@ const IntroWrap = styled.section`
     height: 100vh;
     max-height: 1080px;
     overflow: hidden;
+    
+    @media screen and (min-width:1024px) {
+        max-height: initial;
+    }
 `;
 const IntroIn = styled.div`
     position: relative;
