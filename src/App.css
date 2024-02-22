@@ -33,4 +33,7 @@
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
     max-height: initial;
+    cursor: pointer;
+    pointer-events: visible;
+    background: transparent;
 }

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const SkillText = () => {
+const SkillText = ({id, name, text}) => {
     return (
         <SkillTextWrap>
             <div className="skillTextIn">
-                <p className="name russo-one-regular">HTML5, CSS3</p>
+                <p className="name russo-one-regular">{name}</p>
                 <p className="text">
-                    설명부분설명부분설명부분설명부분설명부분설명부분설명부분설명부분설명부분설명부분설명부분설명부분
+                    {text}
                 </p>
             </div>
         </SkillTextWrap>
@@ -16,14 +16,12 @@ const SkillText = () => {
 export default SkillText;
 
 const SkillTextWrap = styled.div`
-    position: absolute;
-    bottom: 6vh;
-    left: 50%;
     width: 60vw;
+    margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
     border: 2px solid var(--main-blue);
-    transform: translateX(-50%);
+    z-index: 100;
     
     .skillTextIn{
         padding: 20px;
@@ -35,6 +33,47 @@ const SkillTextWrap = styled.div`
         .text{
             line-height: 1.4em;
             letter-spacing: -0.2px;
+        }
+    }
+
+    @media screen and (min-width:768px){
+        width: 50vw;
+
+        .skillTextIn{
+            padding: 30px;
+    
+            .name{
+                font-size: 21px;
+                margin-bottom: 24px;
+            }
+            .text{
+                font-size: 16px;
+            }
+        }
+    }
+    @media screen and (min-width:1024px){
+        width: 30vw;
+
+        .skillTextIn{
+            .name{
+                font-size: 24px;
+                margin-bottom: 28px;
+            }
+        }
+    }
+    @media screen and (min-width:1600px){
+
+        .skillTextIn{
+            padding: 40px;
+            top: 50%;
+    
+            .name{
+                font-size: 26px;
+                margin-bottom: 26px;
+            }
+            .text{
+                font-size: 18px;
+            }
         }
     }
 `;
