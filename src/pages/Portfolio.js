@@ -1,24 +1,53 @@
 import styled from "styled-components";
 import ProjectComp from "../component/ProjectComp";
+import { useState } from "react";
+import { useEffect } from "react";
+
+const fetchData = async (setData) => {
+    try {
+        const response = await fetch('/project/project.json');
+        const jsonData = await response.json();
+
+        setData(jsonData);
+    } catch (err) {
+        console.log('데이터를 불러오지 못했습니다.');
+    }
+};
 
 const Portfolio = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetchData(setData);
+    }, []);
+    
     return (
-        <section id="Portfolio">
+        <PortfolioWrap id="Portfolio">
             <PortfolioIn>
                 <h2 className="bgTitle russo-one-regular">Portfolio</h2>
                 <div className="container">
                     <ProjectComp />
                 </div>
             </PortfolioIn>
-        </section>
+        </PortfolioWrap>
     );
 };
 
 export default Portfolio;
 
+const PortfolioWrap = styled.section`
+    // height: 100vh;
+    // max-height: 1080px;
+    // overflow: hidden;
+
+    // @media screen and (min-width:1024px) {
+    //     max-height: initial;
+    // }
+`;
+
 const PortfolioIn = styled.div`
     margin: 0 14px;
-    padding-top: 91px;
+    padding-top: 86px;
 
     .bgTitle {
         marign-bottom: 30px;
