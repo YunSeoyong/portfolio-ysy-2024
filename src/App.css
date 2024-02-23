@@ -11,10 +11,10 @@
     --font-size-lg: clamp(3.3rem, 10vw, 12rem);
     --font-size-md: clamp(1.8rem, 3vw, 36px);
     --font-size-sm: clamp(1.2rem, 2vw, 24px);
-    --font-size-con: clamp(0.9rem, 2vw, 18px);
+    --font-size-con: clamp(0.9rem, 1.5vw, 18px);
     --main-blue: #3498E0;
     --sub-blue: #74BBEF;
-    --main-yellow: #ffc219;
+    --main-yellow: #f4b60b;
 }
 
 .hide {

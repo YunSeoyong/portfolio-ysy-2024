@@ -1,36 +1,50 @@
 import styled from "styled-components";
 
-const ProjectComp = () => {
+const ProjectComp = ({
+    id,
+    title,
+    subtitle,
+    stack,
+    explanation,
+    photomo,
+    photota,
+    photopc,
+    link,
+    git
+}) => {
     return (
         <ProjectWrap>
             <div className="project_in">
+                {/* 앞면 */}
                 <div className="photo">
-                    <img src="/assets/img/pjt-cinelib-mo.png" alt="cinelib" className="mo" />
-                    <img src="/assets/img/pjt-cinelib-ta.png" alt="cinelib" className="ta" />
-                    <img src="/assets/img/pjt-cinelib-pc.png" alt="cinelib" className="pc" />
+                    <img src={`/assets/img/${photomo}`} alt={title} className="mo" />
+                    <img src={`/assets/img/${photota}`} alt={title} className="ta" />
+                    <img src={`/assets/img/${photopc}`} alt={title} className="pc" />
                 </div>
+                {/* 뒷면 */}
                 <div className="info">
-                    <h3 className="title">TITLE</h3>
-                    <p className="subtitle">서브타이틀</p>
+                    <h3 className="title">{title}</h3>
+                    <p className="subtitle">{subtitle}</p>
                     <div className="stack">
                         <h4>기술 스택</h4>
                         <ul>
-                            <li>HTML5</li>
-                            <li>CSS3</li>
+                            {
+                                stack.map((i, idx) => (
+                                    <li key={i.idx}>{i}</li>
+                                ))
+                            }
                         </ul>
                     </div>
                     <div className="explanation">
                         <h4>프로젝트 소개</h4>
-                        <p>TMDB API를 활용하여 React로 제작한 포트폴리오용 반응형 웹입니다. api를 통해 데이터를 가져오고 이를 활용하여 필터링 시스템, 검색 시스템을 제작하였습니다. firebase를 활용해 기본적인 로그인 기능을 적용시켰습니다.</p>
+                        <p>{explanation}</p>
                     </div>
                     <div className="link">
-                        <div className="linkbox">
-                            <h4>Link</h4>
-                            <p>sss.sss.sss</p>
+                        <div className="site">
+                            <a href={link}>Link</a>
                         </div>
-                        <div className="linkbox">
-                            <h4>Git</h4>
-                            <p>sss.sss.sss</p>
+                        <div className="git">
+                            <a href={git}>Git</a>
                         </div>
                     </div>
                 </div>
@@ -42,17 +56,111 @@ const ProjectComp = () => {
 export default ProjectComp
 
 const ProjectWrap = styled.div`
-    .project_in{
-        .photo{
-            width: 70%;
-            max-height: 350px;
-            overflow: hidden;
+    width: 100%;
+    height: calc(100vh - 180px);
+    perspective: 1000px;
 
+    &:hover .project_in{
+        transform: rotateY(180deg);
+    }
+    
+    .project_in{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+        transition: 0.5s;
+        transform-style: preserve-3d;
+        
+        .photo, .info{
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            backface-visibility: hidden;
+            transition: transform 1s ease-in-out;
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+
+        }
+        .photo{
             img{
                 width: 100%;
                 height: auto;
-
             }
+            .ta, .pc{
+                display: none;
+            }
+        }
+        .info{
+            transform: rotateY(180deg);
+            padding: 25px;
+
+            h4{
+                font-size: var(--font-size-sm);
+                font-weight: 600;
+                color: #666;
+                margin-bottom: 2vw;
+            }
+            .title{
+                font-size: var(--font-size-md);
+                font-weight: 700;
+                margin-bottom: 2vw;
+                color: var(--main-blue);
+            }
+            .subtitle{
+                font-size: var(--font-size-con);
+                color: #888;
+                margin-bottom: 3.4vw;
+            }
+            .stack{
+                margin-bottom: 3vw;
+                ul{
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    li{
+                        padding: 5px 8px;
+                        font-size: 11px;
+                        background-color: var(--main-yellow);
+                        color: #fff;
+                        border-radius: 20px;
+                        margin-right: 1.5vw;
+                        margin-bottom: 1.5vw;
+                    }
+                }
+            }
+            .explanation{
+                margin-bottom: 4vw;
+
+                p{
+                    font-size: 13px;
+                    line-height: 1.3em;
+                    letter-spacing: -0.02rem;
+                    color: #333;
+                }
+            }
+            .link{
+                display: flex;
+                
+                div{
+                    margin-right: 6vw;
+                    background-color: var(--sub-blue);
+                    text-align: center;
+                    border-radius: 40px;
+                    
+                    a{
+                        display: block;
+                        padding: 8px 20px;
+                        color: #fff;
+                    }
+                }
+            }
+            
         }
     }
 `;

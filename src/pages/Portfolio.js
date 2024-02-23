@@ -26,7 +26,14 @@ const Portfolio = () => {
             <PortfolioIn>
                 <h2 className="bgTitle russo-one-regular">Portfolio</h2>
                 <div className="container">
-                    <ProjectComp />
+                    {
+                        data.map((it) => (
+                            <ProjectComp 
+                                key={it.id}
+                                {...it}
+                            />
+                        ))
+                    }
                 </div>
             </PortfolioIn>
         </PortfolioWrap>
@@ -36,26 +43,28 @@ const Portfolio = () => {
 export default Portfolio;
 
 const PortfolioWrap = styled.section`
-    // height: 100vh;
-    // max-height: 1080px;
-    // overflow: hidden;
-
-    // @media screen and (min-width:1024px) {
-    //     max-height: initial;
-    // }
-`;
-
-const PortfolioIn = styled.div`
-    margin: 0 14px;
-    padding-top: 86px;
+    height: 100vh;
+    max-height: 1080px;
+    
+    @media screen and (min-width:1024px) {
+        max-height: initial;
+    }
+    `;
+    
+    const PortfolioIn = styled.div`
+    padding: 86px 60px 0 60px;
 
     .bgTitle {
-        marign-bottom: 30px;
+        margin-bottom: 24px;
         text-align: center;
         font-size: 26px;
         color: transparent;
         background: linear-gradient(90deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
         opacity: 0.6;
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
     }
 `;
