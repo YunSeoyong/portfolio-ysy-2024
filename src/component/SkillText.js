@@ -62,6 +62,7 @@ const SkillTextWrap = styled.div`
         }
     }
     @media screen and (min-width:1600px){
+        width: 25vw;
 
         .skillTextIn{
             padding: 40px;

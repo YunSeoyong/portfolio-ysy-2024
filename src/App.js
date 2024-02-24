@@ -5,6 +5,7 @@ import Header from './component/Header';
 import MainTitle from './pages/MainTitle';
 import Intro from './pages/Intro';
 import Skill from './pages/Skill';
+import Portfolio from './pages/Portfolio';
 
 
 
@@ -17,6 +18,7 @@ function App() {
                     <MainTitle />
                     <Intro />
                     <Skill />
+                    <Portfolio />
                 </Main>
             </div>
         </ResizedProvider>
