@@ -56,6 +56,7 @@ const Navigation = styled.nav`
                 line-height: 1.2em;
                 color: var(--sub-blue);
                 transition: 0.3s ease;
+                text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2)
             }
         }
         li:hover a{

@@ -41,10 +41,10 @@ const ProjectComp = ({
                     </div>
                     <div className="link">
                         <div className="site">
-                            <a href={link}>Link</a>
+                            <a href={link} target="_blank" rel="noreferrer noopener">Link</a>
                         </div>
                         <div className="git">
-                            <a href={git}>Git</a>
+                            <a href={git} target="_blank" rel="noreferrer noopener">Git</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,6 @@ const ProjectComp = ({
 export default ProjectComp
 
 const ProjectWrap = styled.div`
-    width: 100%;
     height: calc(100vh - 180px);
     perspective: 1000px;
 
@@ -69,8 +68,8 @@ const ProjectWrap = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 14px;
-        transition: 0.5s;
         transform-style: preserve-3d;
+        transition: transform 0.6s ease-in-out;
         
         .photo, .info{
             box-sizing: border-box;
@@ -82,7 +81,6 @@ const ProjectWrap = styled.div`
             border-radius: 14px;
             overflow: hidden;
             backface-visibility: hidden;
-            transition: transform 1s ease-in-out;
             box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
             background-color: #fff;
 
@@ -91,6 +89,7 @@ const ProjectWrap = styled.div`
             img{
                 width: 100%;
                 height: auto;
+                object-fit: cover;
             }
             .ta, .pc{
                 display: none;
@@ -161,6 +160,104 @@ const ProjectWrap = styled.div`
                 }
             }
             
+        }
+    }
+    @media screen and (min-width:768px) {
+        height: calc(100vh - 340px);
+
+        .project_in{
+            .photo{
+                .ta{
+                    display: block;
+                }
+                .mo, .pc{
+                    display: none;
+                }
+            }
+            .info{
+                padding: 40px;
+
+                .stack{
+                    ul{
+                        li{
+                            padding: 7px 11px;
+                            font-size: 13px;
+                        }
+                    }
+                }
+                
+                .explanation{
+                    p{
+                        font-size: 15px;
+                    }
+                }
+
+                .link{
+                    justify-content: space-between;
+                    div{
+                        margin: 0;
+                        a{
+                            font-size: 17px;
+                            padding: 10px 30px;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width:1200px){
+        height: calc(100vh - 380px);
+    }
+    @media screen and (min-width:1600px){
+        .project_in{
+            .photo{
+                .pc{
+                    display: block;
+                }
+                .mo, .ta{
+                    display: none;
+                }
+            }
+            .info{
+                padding: 60px;
+                h4{
+                    margin-bottom: 1.2vw;
+                }
+                .title{
+                    margin-bottom: 1.4vw;
+                }
+                .subtitle{
+                    margin-bottom: 1.3vw;
+                }
+                .stack{
+                    margin-bottom: 1.2vw;
+
+                    ul{
+                        li{
+                            margin-right: 0.5vw;
+                            margin-bottom: 0.8vw;
+                            font-size: 14px;
+                            padding: 8px 14px;
+                        }
+                    }
+                }
+                .explanation{
+                    margin-bottom: 2.4vw;
+                    p{
+                        font-size: 16px;
+                    }
+                }
+                .link{
+                    div{
+                        a{
+                            font-size: 20px;
+                            padding: 15px 45px;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
         }
     }
 `;

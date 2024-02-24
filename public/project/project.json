@@ -54,7 +54,7 @@
         "stack" : ["React", "CSS3", "styled components", "illustrator"],
         "explanation" : "프론트엔드 4명되었으며, 팀장으로 참여하였습니다. 아이콘 제작, 전체적인 ui 및 기술 구현 기획, 브랜치 병합 후의 정리, 바텀 네비게이션,라우터를 이용한 페이지 이동, 메인페이지의 20%, 전역 검색 컴포넌트, 도시 선택 컴포넌트, date-range-picker 라이브러리를 활용한 날짜 선택 컴포넌트, 재사용 가능한 모달창, 여행 일정을 생성 및 관리할 수 있게끔 reducer를 활용하는 파트를 맡았습니다. 백엔드의 부재가 아쉬웠던 프로젝트로, 서버를 구축하고, 데이터베이스를 활용하는 것에 대해 학습할 필요성을 느낀 프로젝트였습니다.",
         "photomo" : "pjt-teamtriple-mo.png",
-        "photota" : "pjt-teamtriple-pc.png",
+        "photota" : "pjt-teamtriple-ta.png",
         "photopc" : "pjt-teamtriple-pc.png",
         "link" : "https://github.com/TeamC-Triple/team-c-triple.git",
         "git" : "https://github.com/TeamC-Triple/team-c-triple.git"
@@ -66,7 +66,7 @@
         "stack" : ["React", "styled components", "Typescript", "Node.js", "mongoDB"],
         "explanation" : "기술 학습 및 성장을 위해 React로 제작한 포트폴리오용 반응형 웹입니다. 재사용 가능한 컴포넌트를 활용하였고, Nodejs와 mongoDB를 이용하여 자바스크립트 환경에서 서버를 구축하고 데이터를 저장할 수 있게 하였습니다. 레이아웃 설계부터 최적화, 배포까지 모든 단계를 연습해보는 프로젝트였습니다.",
         "photomo" : "pjt-teamtriple-mo.png",
-        "photota" : "pjt-teamtriple-pc.png",
+        "photota" : "pjt-teamtriple-ta.png",
         "photopc" : "pjt-teamtriple-pc.png",
         "link" : "https://github.com/TeamC-Triple/team-c-triple.git",
         "git" : "https://github.com/TeamC-Triple/team-c-triple.git"

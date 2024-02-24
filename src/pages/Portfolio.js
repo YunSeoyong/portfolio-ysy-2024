@@ -1,7 +1,13 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 import ProjectComp from "../component/ProjectComp";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const fetchData = async (setData) => {
     try {
@@ -25,16 +31,44 @@ const Portfolio = () => {
         <PortfolioWrap id="Portfolio">
             <PortfolioIn>
                 <h2 className="bgTitle russo-one-regular">Portfolio</h2>
-                <div className="container">
+                <Swiper 
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    loop={true}
+                    modules={[Navigation, Pagination]}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                        },
+                        1200: {
+                            slidesPerView: 3,
+                            spaceBetween: 40,
+                        },
+                        1600: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        }
+                    }}
+                    className="container"
+                >
                     {
                         data.map((it) => (
-                            <ProjectComp 
-                                key={it.id}
-                                {...it}
-                            />
+                            <SwiperSlide>
+                                <ProjectComp 
+                                    key={it.id}
+                                    {...it}
+                                />
+                            </SwiperSlide>
                         ))
                     }
-                </div>
+                </Swiper>
             </PortfolioIn>
         </PortfolioWrap>
     );
@@ -43,16 +77,20 @@ const Portfolio = () => {
 export default Portfolio;
 
 const PortfolioWrap = styled.section`
+    width: 100%;
     height: 100vh;
     max-height: 1080px;
+    overflow: hidden;
     
     @media screen and (min-width:1024px) {
         max-height: initial;
     }
     `;
     
-    const PortfolioIn = styled.div`
-    padding: 86px 60px 0 60px;
+const PortfolioIn = styled.div`
+    box-sizing: border-box;
+    padding: 86px 40px 25px 40px;
+    overflow: visible;
 
     .bgTitle {
         margin-bottom: 24px;
@@ -64,7 +102,53 @@ const PortfolioWrap = styled.section`
         opacity: 0.6;
     }
     .container{
-        display: flex;
-        flex-wrap: wrap;
+        overflow: visible;
+
+        .swiper-button-prev, .swiper-button-next{
+            color: var(--main-blue);
+        }
+        .swiper-button-prev{
+            left: var(--swiper-navigation-sides-offset, -25px);
+        }
+        .swiper-button-next{
+            right: var(--swiper-navigation-sides-offset, -25px);
+        }
+
+        .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+            bottom:  var(--swiper-pagination-bottom, -20px);
+        }
+    }
+
+    @media screen and (min-width:768px) {
+        padding-top: 106px;
+
+        .bgTitle{
+            margin-bottom: 36px;
+            font-size: var(--font-size-md);
+        }
+
+        .container{
+            .swiper-button-prev{
+                left: var(--swiper-navigation-sides-offset, -20px);
+            }
+            .swiper-button-next{
+                right: var(--swiper-navigation-sides-offset, -20px);
+            }
+            .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+                bottom:  var(--swiper-pagination-bottom, -70px);
+            }
+        }
+    }
+    @media screen and (min-width:1200px){
+        padding: 106px 60px 0 60px;
+
+        .bgTitle{
+            margin-bottom: 48px;
+        }
+    }
+    @media screen and (min-width:1600px){
+        width: 1560px;
+        margin: 0 auto;
+        padding: 106px 0 0 0;
     }
 `;
