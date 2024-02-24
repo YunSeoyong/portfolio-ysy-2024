@@ -81,6 +81,7 @@ const AboutMe = () => {
 export default AboutMe;
 
 const AboutMeWrap = styled.section`
+    position: relative;
     height: 100vh;
     max-height: 1080px;
     overflow: hidden;
