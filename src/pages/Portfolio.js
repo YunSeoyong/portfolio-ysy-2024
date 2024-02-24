@@ -77,7 +77,6 @@ const Portfolio = () => {
 export default Portfolio;
 
 const PortfolioWrap = styled.section`
-    width: 100%;
     height: 100vh;
     max-height: 1080px;
     overflow: hidden;
@@ -85,7 +84,7 @@ const PortfolioWrap = styled.section`
     @media screen and (min-width:1024px) {
         max-height: initial;
     }
-    `;
+`;
     
 const PortfolioIn = styled.div`
     box-sizing: border-box;
@@ -97,7 +96,7 @@ const PortfolioIn = styled.div`
         text-align: center;
         font-size: 26px;
         color: transparent;
-        background: linear-gradient(90deg, #7EC9FF, #FCFBBC);
+        background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
         opacity: 0.6;
     }

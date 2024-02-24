@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import SkillText from "./SkillText";
-import styled from "styled-components";
 
 const Triangle = ({ id, rotate, name, text, mouseoverTri, mouseoutTri, isModal }) => {
     const tri = {
@@ -28,7 +26,7 @@ const Triangle = ({ id, rotate, name, text, mouseoverTri, mouseoutTri, isModal }
             onMouseOut={mouseoutTri}
             >
             <motion.path
-                d="M125.2 0.199951L0.199951 217.2H250.2L125.2 0.199951Z" fill="none"
+                d="M125.2 0.199951L0.199951 217.2H250.2L125.2 0.199951Z" fill={isModal ? '#74BBEF' : 'none'}
                 variants={tri}
                 initial="hidden"
                 animate="visible"

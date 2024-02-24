@@ -208,6 +208,30 @@ const ProjectWrap = styled.div`
     }
     @media screen and (min-width:1200px){
         height: calc(100vh - 380px);
+
+        .project_in{
+            .info{
+                h4{
+                    margin-bottom: 1.4vw;
+                }
+                .title{
+                    margin-bottom: 1.5vw;
+                }
+                .subtitle{
+                    margin-bottom: 1.5vw;
+                }
+                .stack{
+                    margin-bottom: 2vw;
+
+                    ul{
+                        li{
+                            margin-right: 1vw;
+                            margin-bottom: 1vw;
+                        }
+                    }
+                }
+            }
+        }
     }
     @media screen and (min-width:1600px){
         .project_in{
@@ -225,7 +249,7 @@ const ProjectWrap = styled.div`
                     margin-bottom: 1.2vw;
                 }
                 .title{
-                    margin-bottom: 1.4vw;
+                    margin-bottom: 1.3vw;
                 }
                 .subtitle{
                     margin-bottom: 1.3vw;

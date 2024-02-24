@@ -41,7 +41,7 @@ const IntroIn = styled.div`
         z-index: -1;
         font-size: 72px;
         color: transparent;
-        background: linear-gradient(90deg, #7EC9FF, #FCFBBC);
+        background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
         opacity: 0.6;
     }
