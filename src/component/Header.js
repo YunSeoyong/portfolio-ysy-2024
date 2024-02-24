@@ -104,11 +104,6 @@ const HeaderWrap = styled.header`
                 }
             };
             // 768 끝
-            // 1200 시작
-            @media screen and (min-width:1200px) {
-
-            }
-            // 1200 끝
             // 1600 시작
             @media screen and (min-width:1600px) {
                 width: 1560px;

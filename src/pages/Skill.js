@@ -22,7 +22,7 @@ const hexaTri = [
         id: 2,
         rotate: 120,
         name: 'HTML5, CSS3',
-        text: 'HTML5, CSS3를 이용하여 웹 전반적인 기초를 수립하고, UI를 설계 및 구현하였으며 반응형 웹(responsive web)을 설계 및 구현할 수 있는 능력을 길렀습니다. keyframe을 활용한 애니메이션 기법을 익혔습니다.',
+        text: 'HTML5, CSS3를 이용하여 웹 전반적인 기초를 수립하고, UI를 설계 및 구현하였으며, 반응형 웹을 구현할 수 있는 능력을 길렀습니다. keyframe을 활용한 애니메이션 기법을 익혔습니다.',
     },
     {
         id: 3,
@@ -128,7 +128,7 @@ const SkillIn = styled.div`
         z-index: -1;
         font-size: 72px;
         color: transparent;
-        background: linear-gradient(90deg, #7EC9FF, #FCFBBC);
+        background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
         opacity: 0.6;
     }
