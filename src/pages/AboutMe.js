@@ -20,7 +20,7 @@ const rotateAnimation = keyframes`
     }
 `;
 
-const AboutMe = () => {
+const AboutMe = ({}) => {
 
     const hexaMotion = {
         hidden: {
@@ -36,11 +36,11 @@ const AboutMe = () => {
     }
 
     return (
-        <AboutMeWrap id="AboutMe">
+        <AboutMeWrap id="AboutMe" className="section">
             <AboutMeIn>
                 <div className="bgSvg">
                     <motion.svg width="602" height="694" viewBox="0 0 602 694" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <motion.path d="M2.9892 174.943L301 2.88675L599.011 174.943V519.057L301 691.113L2.9892 519.057V174.943Z" stroke="#7EC9FF" stroke-opacity="0.3" stroke-width="5"
+                        <motion.path d="M2.9892 174.943L301 2.88675L599.011 174.943V519.057L301 691.113L2.9892 519.057V174.943Z" stroke="#7EC9FF" strokeOpacity="0.3" strokeWidth="5"
                         variants={hexaMotion}
                         initial="hidden"
                         animate="visible"
@@ -83,7 +83,6 @@ export default AboutMe;
 const AboutMeWrap = styled.section`
     position: relative;
     height: 100vh;
-    max-height: 1080px;
     overflow: hidden;
 
     footer{
@@ -97,9 +96,6 @@ const AboutMeWrap = styled.section`
         line-height: 40px;
         color: #fff;
         font-size: 12px;
-    }
-    @media screen and (min-width:1024px) {
-        max-height: initial;
     }
     @media screen and (min-width:1200px){
         footer{

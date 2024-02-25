@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Intro = () => {
+const Intro = ({}) => {
     return (
-        <IntroWrap id="Intro">
+        <IntroWrap id="Intro" className="section">
             <IntroIn>
                 <h2 className="bgTitle russo-one-regular">Intro</h2>
                 <div className="content">
@@ -22,12 +22,7 @@ export default Intro;
 
 const IntroWrap = styled.section`
     height: 100vh;
-    max-height: 1080px;
     overflow: hidden;
-    
-    @media screen and (min-width:1024px) {
-        max-height: initial;
-    }
 `;
 const IntroIn = styled.div`
     position: relative;
@@ -74,7 +69,7 @@ const IntroIn = styled.div`
             right: 0;
             font-size: 148px;
             color: transparent;
-            background: linear-gradient(90deg, #7EC9FF, #FCFBBC);
+            background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
             -webkit-background-clip: text;
         }
         .content{
@@ -117,7 +112,7 @@ const IntroIn = styled.div`
     @media screen and (min-width:1600px){
         width: 1560px;
         margin: 0 auto;
-        padding: 10% 0;
+        padding: 22% 0;
 
         .bgTitle{
             top: 280px;

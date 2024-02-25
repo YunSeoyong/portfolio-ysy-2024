@@ -10,10 +10,10 @@ const rotateAnimation = keyframes`
     }
 `;
 
-const MainTitle = () => {
+const MainTitle = ({}) => {
 
     return (
-        <MainTitleWrap id="MainTitle">
+        <MainTitleWrap id="MainTitle" className="section">
             <BgSvg>
                 <div className="hexa_big">
                     <img src="/assets/svg/hexa-big.svg" alt="hexa-big" />
@@ -31,8 +31,8 @@ const MainTitle = () => {
                     <p>신입 프론트엔드 개발자 <span>윤서용</span>입니다.</p>
                 </div>
                 <div className="title russo-one-regular">
-                    <p className="fe">FRONTEND</p>
-                    <p className="pr">PORTFOLIO</p>
+                    <p className="fe"><span className="hide">FRONTEND</span></p>
+                    <p className="pr"><span className="hide">PORTFOLIO</span></p>
                 </div>
             </MainTitleIn>
         </MainTitleWrap>
@@ -44,12 +44,7 @@ export default MainTitle;
 const MainTitleWrap = styled.section`
     position: relative;
     height: 100vh;
-    max-height: 1080px;
     overflow: hidden;
-
-    @media screen and (min-width:1024px) {
-        max-height: initial;
-    }
 `
 const BgSvg = styled.div`
     position: absolute;
@@ -157,11 +152,8 @@ const MainTitleIn = styled.div`
     z-index: 100;
 
     .ment{
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        transform: translateY(-90px);
+        padding-top: 35vh;
+        margin-bottom: 5vw;
         font-size: 0.9rem;
         text-align: center;
         line-height: 1.3em;
@@ -174,22 +166,22 @@ const MainTitleIn = styled.div`
         };
     };
     .title{
-        font-size: clamp(3.6rem, 11vw, 13rem);
-    
         & > p{
-            position: absolute;
-            bottom: 50%;
+            display: block;
+            width: 100%;
+            height: 11vw;
+            max-height: 60px;
+            background-repeat: no-repeat;
+            background-size: auto 100%;
         };
         .fe{
-            left: 0;
-            transform: translateY(30px);
-            color: transparent;
-            -webkit-text-stroke: 2px var(--main-blue);
+            margin-bottom: 10px;
+            background-position: left center;
+            background-image: url('./assets/svg/title1.svg');
         };
         .pr{
-            left: 0;
-            transform: translateY(90px);
-            color: var(--main-blue);
+            background-position: right center;
+            background-image: url('./assets/svg/title2.svg');
         };
     };
 
@@ -197,70 +189,47 @@ const MainTitleIn = styled.div`
         margin : 0 20px;
 
         .ment{
-            transform: translateY(-130px);
             font-size: 18px;
         };
         .title{
-            .fe{
-                transform: translateY(50px);
-                -webkit-text-stroke: 3px var(--main-blue);
+            & > p{
+                max-height: 120px;
             };
-            .pr{
-                text-align: right;
-                right: 0;
-                transform: translateY(150px);
-                color: var(--main-blue);
+            .fe{
+                margin-bottom: 20px;
             };
         };
     };
     @media screen and (min-width:1200px){
         .ment{
+            padding-top: 40vh;
+            margin-bottom: 3vw;
             text-align: left;
             display: flex;
-            transform: translateY(-110px);
             font-size: 21px;
-            margin-left: 10px;
             
             p:first-child{
                 margin-right: 8px;
             };
         };
         .title{
-            .fe{
-                transform: translateY(80px);
-                -webkit-text-stroke: 4px var(--main-blue);
+            & > p{
+                max-height: 150px;
             };
-            .pr{
-                text-align: right;
-                right: 0;
-                transform: translateY(220px);
-                color: var(--main-blue);
+            .fe{
+                margin-bottom: 35px;
             };
         };
     };
     @media screen and (min-width:1600px){
         width: 1560px;
         margin: 0 auto;
-
         .ment{
-            transform: translateY(-150px);
-            font-size: 24px;
-            margin-left: 10px;
+            padding-top: 45vh;
+            margin-bottom: 2vw;
             
             p:first-child{
                 margin-right: 8px;
-            };
-        };
-        .title{
-            .fe{
-                transform: translateY(80px);
-                -webkit-text-stroke: 5px var(--main-blue);
-            };
-            .pr{
-                text-align: right;
-                right: 0;
-                transform: translateY(280px);
-                color: var(--main-blue);
             };
         };
     }

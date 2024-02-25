@@ -2,23 +2,34 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const navList = [
-    {text: "Intro", id: 0},
-    {text: "Skill", id: 1},
-    {text: "Portfolio", id: 2},
-    {text: "AboutMe", id: 3},
+    {text: "Intro", id: 1},
+    {text: "Skill", id: 2},
+    {text: "Portfolio", id: 3},
+    {text: "AboutMe", id: 4},
 ];
 const Navi = ({
     type,
     isOpen,
+    currentPage,
+    setCurrentPage,
+    sectionRef,
 }) => {
+
+    const onClickNavi = (id) => {
+        sectionRef.current[id].scrollIntoView({behavior: "smooth"});
+        setCurrentPage(id);
+    };
+
     return (
         <Navigation
             className={`${type} russo-one-regular ${isOpen ? 'active' : ''}`}
         >
             <ul>
                 {navList.map((it) => (
-                    <li key={it.id}>
-                        <a href={`#${it.text}`}>{it.text}</a>
+                    <li key={it.id} onClick={() => {onClickNavi(it.id)}}
+                        className={currentPage === it.id ? "active" : ""}
+                    >
+                        <p>{it.text}</p>
                         <span className="bar"></span>
                     </li>
                 ))}
@@ -30,6 +41,9 @@ const Navi = ({
 export default Navi;
 
 const Navigation = styled.nav`
+    li{
+        cursor: pointer;
+    }
     &.mo {
         position: absolute;
         top: 86px;
@@ -49,18 +63,21 @@ const Navigation = styled.nav`
         
         li{
             margin-bottom: 10px;
-
-            a {
+            
+            p {
                 padding: 2px 10px;
                 font-size: 16px;
                 line-height: 1.2em;
-                color: var(--sub-blue);
+                color: var(--main-blue);
                 transition: 0.3s ease;
-                text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2)
+                text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            }
+            &.active p{
+                color: var(--main-yellow);
             }
         }
-        li:hover a{
-            color: var(--main-blue);
+        li:hover p{
+            color: var(--main-yellow);
         }
 
         @media screen and (min-width:768px) {
@@ -71,7 +88,6 @@ const Navigation = styled.nav`
     &.pc {
         display: none;
 
-        // 
         @media screen and (min-width:768px) {
             display: block;
             
@@ -83,7 +99,7 @@ const Navigation = styled.nav`
                     margin-left: 5vw;
                     overflow: hidden;
                     
-                    a {
+                    p {
                         font-size: var(--font-size-sm);
                         color: var(--main-blue);
                         line-height: 1.3em;
@@ -107,14 +123,14 @@ const Navigation = styled.nav`
                 li:hover .bar{
                     transform: translateX(0);
                 }
-                // li.active{
-                //     a{
-                //         color: var(--main-yellow);
-                //     }
-                //     .bar{
-                //         transform: translateX(0);
-                //     }
-                // }
+                li.active{
+                    p{
+                        color: var(--main-yellow);
+                    }
+                    .bar{
+                        transform: translateX(0);
+                    }
+                }
             }
         };
         // 1024 시작
@@ -123,8 +139,8 @@ const Navigation = styled.nav`
                 li{
                     margin-left: 60px;
 
-                    a{
-                        // font-size: 24px;
+                    p{
+                        font-size: 24px;
                     }
                 }
             }
