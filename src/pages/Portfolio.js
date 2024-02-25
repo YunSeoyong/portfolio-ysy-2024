@@ -82,7 +82,7 @@ const PortfolioWrap = styled.section`
     
 const PortfolioIn = styled.div`
     box-sizing: border-box;
-    padding: 86px 40px 25px 40px;
+    padding: 86px 60px 25px 60px;
     overflow: visible;
 
     .bgTitle {
@@ -108,7 +108,7 @@ const PortfolioIn = styled.div`
         }
 
         .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
-            bottom:  var(--swiper-pagination-bottom, -20px);
+            bottom:  var(--swiper-pagination-bottom, -30px);
         }
     }
 

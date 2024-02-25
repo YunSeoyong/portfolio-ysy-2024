@@ -56,7 +56,7 @@ const ProjectComp = ({
 export default ProjectComp
 
 const ProjectWrap = styled.div`
-    height: calc(100vh - 180px);
+    height: calc(100vh - 200px);
     perspective: 1000px;
 
     &:hover .project_in{
