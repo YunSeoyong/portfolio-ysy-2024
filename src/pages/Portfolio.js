@@ -20,7 +20,7 @@ const fetchData = async (setData) => {
     }
 };
 
-const Portfolio = () => {
+const Portfolio = ({}) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Portfolio = () => {
     }, []);
     
     return (
-        <PortfolioWrap id="Portfolio">
+        <PortfolioWrap id="Portfolio" className="section">
             <PortfolioIn>
                 <h2 className="bgTitle russo-one-regular">Portfolio</h2>
                 <Swiper 
@@ -36,7 +36,6 @@ const Portfolio = () => {
                         clickable: true,
                     }}
                     navigation={true}
-                    loop={true}
                     modules={[Navigation, Pagination]}
                     breakpoints={{
                         320: {
@@ -60,7 +59,7 @@ const Portfolio = () => {
                 >
                     {
                         data.map((it) => (
-                            <SwiperSlide>
+                            <SwiperSlide key={it.id}>
                                 <ProjectComp 
                                     key={it.id}
                                     {...it}
@@ -78,12 +77,7 @@ export default Portfolio;
 
 const PortfolioWrap = styled.section`
     height: 100vh;
-    max-height: 1080px;
     overflow: hidden;
-    
-    @media screen and (min-width:1024px) {
-        max-height: initial;
-    }
 `;
     
 const PortfolioIn = styled.div`
@@ -146,8 +140,21 @@ const PortfolioIn = styled.div`
         }
     }
     @media screen and (min-width:1600px){
-        width: 1560px;
+        width: 1600px;
         margin: 0 auto;
-        padding: 106px 0 0 0;
+        padding: 106px 40px 75px 40px;
+        overflow: hidden;
+
+        .container{
+            .swiper-button-prev{
+                left: var(--swiper-navigation-sides-offset, -40px);
+            }
+            .swiper-button-next{
+                right: var(--swiper-navigation-sides-offset, -40px);
+            }
+            .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+                bottom:  var(--swiper-pagination-bottom, -70px);
+            }
+        }
     }
 `;

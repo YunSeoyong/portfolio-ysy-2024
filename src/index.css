@@ -31,6 +31,7 @@ body {
 	font-size: 14px;
 	line-height: 1;
 	color: #222;
+    overflow-y: hidden;
 }
 
 ul, ol {

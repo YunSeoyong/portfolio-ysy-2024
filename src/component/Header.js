@@ -5,7 +5,11 @@ import styled from "styled-components";
 
 import Navi from "./Navi";
 
-const Header = () => {
+const Header = ({
+    currentPage,
+    setCurrentPage,
+    sectionRef,
+}) => {
     const menuRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -19,10 +23,15 @@ const Header = () => {
         return () => document.removeEventListener('click', handleOutsideClose);
     }, [isOpen]);
 
+    const onClickLogo = () => {
+        sectionRef.current[0].scrollIntoView({behavior: "smooth"})
+        setCurrentPage(0);
+    }
+
     return (
         <HeaderWrap>
             <div className="headerIn">
-                <h1 id="logo" className="russo-one-regular"><a href="#MainTitle">SEOYONG</a></h1>
+                <h1 id="logo" className="russo-one-regular" onClick={onClickLogo}>SEOYONG</h1>
                 <div className="sideMenu" ref={menuRef}>
                     <p
                         className="moNavBtn"
@@ -36,9 +45,15 @@ const Header = () => {
                             `}
                         />
                     </p>
-                    <Navi type={'mo'} isOpen={isOpen} />
+                    <Navi 
+                        type={'mo'} isOpen={isOpen} setCurrentPage={setCurrentPage}
+                        sectionRef={sectionRef} currentPage={currentPage}
+                    />
                 </div>
-                <Navi type={'pc'} />
+                <Navi 
+                    type={'pc'} setCurrentPage={setCurrentPage} 
+                    sectionRef={sectionRef} currentPage={currentPage}
+                />
             </div>
         </HeaderWrap>
     );
@@ -61,14 +76,16 @@ const HeaderWrap = styled.header`
             height: 86px;
             margin: 0 14px;
 
-            h1 {
-                width: 100%;
-                text-align: center;
-            }
-            h1 > a {
-                font-size: 32px;
-                line-height: 86px;
-                color: var(--main-blue);   
+            h1 { 
+                width: 130px;
+                height: 32px;
+                margin: 26px auto 0 auto;
+                text-indent: -99999px;
+                background-image: url('/assets/svg/seoyong-logo.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% auto;
+                cursor: pointer;
             }
             .sideMenu{
                 .moNavBtn {
@@ -93,10 +110,11 @@ const HeaderWrap = styled.header`
             // 768 시작
             @media screen and (min-width:768px) {
                 margin: 0 20px;
+                justify-content: space-between;
                 align-items: center;
 
                 h1{
-                    text-align: left;
+                    margin: 0;
                 }
 
                 .sideMenu{

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import Triangle from "../component/Triangle";
@@ -56,7 +56,7 @@ const hexaIcon = [
     { id: 9, name: 'nodejs' },
 ]
 
-const Skill = () => {
+const Skill = ({}) => {
     const [isModal, setIsModal] = useState(false);
     const [select, setSelect] = useState({});
 
@@ -70,7 +70,7 @@ const Skill = () => {
     };
 
     return (
-        <SkillWrap id="Skill">
+        <SkillWrap id="Skill" className="section">
             <SkillIn>
                 <h2 className="bgTitle russo-one-regular">Skill</h2>
                 <div className="content">
@@ -107,12 +107,7 @@ export default Skill;
 
 const SkillWrap = styled.section`
     height: 100vh;
-    max-height: 1080px;
     overflow: hidden;
-
-    @media screen and (min-width:1024px) {
-        max-height: initial;
-    }
 `;
 const SkillIn = styled.div`
     position: relative;

@@ -29,8 +29,8 @@ const ProjectComp = ({
                         <h4>기술 스택</h4>
                         <ul>
                             {
-                                stack.map((i, idx) => (
-                                    <li key={i.idx}>{i}</li>
+                                stack.map((i) => (
+                                    <li key={i}>{i}</li>
                                 ))
                             }
                         </ul>
@@ -234,6 +234,7 @@ const ProjectWrap = styled.div`
         }
     }
     @media screen and (min-width:1600px){
+        height: calc(100vh - 420px);
         .project_in{
             .photo{
                 .pc{
