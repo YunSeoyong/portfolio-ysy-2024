@@ -20,7 +20,7 @@ const rotateAnimation = keyframes`
     }
 `;
 
-const AboutMe = ({}) => {
+const AboutMe = () => {
     const motionWrap = {
         hidden: { 
             opacity: 0 
@@ -110,7 +110,7 @@ export default AboutMe;
 
 const AboutMeWrap = styled.section`
     position: relative;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 
     footer{
