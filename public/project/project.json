@@ -20,7 +20,7 @@
         "photomo" : "pjt-esteelauder-pc.png",
         "photota" : "pjt-esteelauder-pc.png",
         "photopc" : "pjt-esteelauder-pc.png",
-        "link" : "https://cool-daffodil-27508a.netlify.app/",
+        "link" : "http://seoy2515.dothome.co.kr/main/main.php",
         "git" : "https://github.com/YunSeoyong/pjt01-EsteeLauder.git"
     },
     {
@@ -32,7 +32,7 @@
         "photomo" : "pjt-gentlemonster-mo.png",
         "photota" : "pjt-gentlemonster-ta.png",
         "photopc" : "pjt-gentlemonster-pc.png",
-        "link" : "https://github.com/YunSeoyong/pjt02-GentleMonster.git",
+        "link" : "https://pjt02gentlemonster.netlify.app/",
         "git" : "https://github.com/YunSeoyong/pjt02-GentleMonster.git"
     },
     {
@@ -44,8 +44,8 @@
         "photomo" : "pjt-cinelib-mo.png",
         "photota" : "pjt-cinelib-ta.png",
         "photopc" : "pjt-cinelib-pc.png",
-        "link" : "123",
-        "git" : "123"
+        "link" : "https://github.com/YunSeoyong/pjt03-cineLib.git",
+        "git" : "https://github.com/YunSeoyong/pjt03-cineLib.git"
     },
     {
         "id" : 4,
@@ -68,8 +68,8 @@
         "photomo" : "pjt-teamtriple-mo.png",
         "photota" : "pjt-teamtriple-ta.png",
         "photopc" : "pjt-teamtriple-pc.png",
-        "link" : "https://github.com/TeamC-Triple/team-c-triple.git",
-        "git" : "https://github.com/TeamC-Triple/team-c-triple.git"
+        "link" : "https://github.com/YunSeoyong/pjt04-myTodo.git",
+        "git" : "https://github.com/YunSeoyong/pjt04-myTodo.git"
     },
     {
         "id" : 6,
@@ -80,8 +80,8 @@
         "photomo" : "pjt-ulsantravel-pc.png",
         "photota" : "pjt-ulsantravel-pc.png",
         "photopc" : "pjt-ulsantravel-pc.png",
-        "link" : "https://github.com/TeamC-Triple/team-c-triple.git",
-        "git" : "https://github.com/TeamC-Triple/team-c-triple.git"
+        "link" : "https://pjt001visitulsan.netlify.app/",
+        "git" : "https://github.com/YunSeoyong/pjt00-1-visitUlsan.git"
     },
     {
         "id" : 7,
@@ -92,7 +92,7 @@
         "photomo" : "pjt-youngpoong-mo.png",
         "photota" : "pjt-youngpoong-ta.png",
         "photopc" : "pjt-youngpoong-pc.png",
-        "link" : "https://github.com/TeamC-Triple/team-c-triple.git",
-        "git" : "https://github.com/TeamC-Triple/team-c-triple.git"
+        "link" : "https://pjt002youngpoong.netlify.app/",
+        "git" : "https://github.com/YunSeoyong/pjt00-2-youngPoong.git"
     }
 ]
