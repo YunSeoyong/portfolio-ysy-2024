@@ -10,7 +10,11 @@ const Triangle = ({ id, rotate, name, text, mouseoverTri, mouseoutTri, isModal }
         visible: {
             opacity: 1,
             pathLength: 1,
-            fill: "none"
+            fill: "none",
+            transition: {
+                default: { delay: 0.5, duration: 1.5, ease: "easeInOut" },
+                fill: { delay: 1.2, duration: 1.5, ease: [1, 0, 0.8, 1] },
+            }
         }
     }
     return (
@@ -24,17 +28,13 @@ const Triangle = ({ id, rotate, name, text, mouseoverTri, mouseoutTri, isModal }
             style={{ transform: `translateX(-50%) rotate(${rotate}deg)` }}
             onMouseOver={mouseoverTri}
             onMouseOut={mouseoutTri}
-            >
+            variants={tri}
+        >
             <motion.path
                 d="M125.2 0.199951L0.199951 217.2H250.2L125.2 0.199951Z" fill={isModal ? '#74BBEF' : 'none'}
                 variants={tri}
                 initial="hidden"
-                // animate="visible"
                 whileInView="visible"
-                transition={{
-                    default: { duration: 2, ease: "easeInOut" },
-                    fill: { duration: 2, ease: [1, 0, 0.8, 1] }
-                }}
             />
         </motion.svg>
     );

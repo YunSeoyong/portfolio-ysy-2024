@@ -98,6 +98,7 @@ const ProjectWrap = styled.div`
         .info{
             transform: rotateY(180deg);
             padding: 25px;
+            overflow-y: auto;
 
             h4{
                 font-size: var(--font-size-sm);
@@ -175,7 +176,7 @@ const ProjectWrap = styled.div`
                 }
             }
             .info{
-                padding: 40px;
+                padding: 30px;
 
                 .stack{
                     ul{
@@ -187,6 +188,7 @@ const ProjectWrap = styled.div`
                 }
                 
                 .explanation{
+                    margin-bottom: 2.8vw;
                     p{
                         font-size: 15px;
                     }
@@ -207,34 +209,38 @@ const ProjectWrap = styled.div`
         }
     }
     @media screen and (min-width:1200px){
-        height: calc(100vh - 380px);
+        height: calc(100vh - 300px);
 
         .project_in{
             .info{
+                padding: 35px;
+
                 h4{
-                    margin-bottom: 1.4vw;
+                    margin-bottom: 1vw;
                 }
                 .title{
-                    margin-bottom: 1.5vw;
+                    margin-bottom: 1.1vw;
                 }
                 .subtitle{
-                    margin-bottom: 1.5vw;
+                    margin-bottom: 1.1vw;
                 }
                 .stack{
-                    margin-bottom: 2vw;
+                    margin-bottom: 1.2vw;
 
                     ul{
                         li{
                             margin-right: 1vw;
-                            margin-bottom: 1vw;
+                            margin-bottom: 0.8vw;
                         }
                     }
+                }
+                .explanation{
+                    margin-bottom: 2.2vw;
                 }
             }
         }
     }
     @media screen and (min-width:1600px){
-        height: calc(100vh - 420px);
         .project_in{
             .photo{
                 .pc{
@@ -245,7 +251,7 @@ const ProjectWrap = styled.div`
                 }
             }
             .info{
-                padding: 60px;
+                padding: 40px;
                 h4{
                     margin-bottom: 1.2vw;
                 }
@@ -261,17 +267,14 @@ const ProjectWrap = styled.div`
                     ul{
                         li{
                             margin-right: 0.5vw;
-                            margin-bottom: 0.8vw;
+                            margin-bottom: 0.3vw;
                             font-size: 14px;
                             padding: 8px 14px;
                         }
                     }
                 }
                 .explanation{
-                    margin-bottom: 2.4vw;
-                    p{
-                        font-size: 16px;
-                    }
+                    margin-bottom: 1.7vw;
                 }
                 .link{
                     div{

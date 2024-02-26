@@ -21,6 +21,20 @@ const rotateAnimation = keyframes`
 `;
 
 const AboutMe = ({}) => {
+    const motionWrap = {
+        hidden: { 
+            opacity: 0 
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                ease: "linear",
+                duration: 1.2,
+                delayChildren: 0.3,
+                staggerChildren: 0.5
+            }
+        }
+    }
 
     const hexaMotion = {
         hidden: {
@@ -28,29 +42,43 @@ const AboutMe = ({}) => {
             pathLength: 0,
             fill: "none"
         },
-        visible: {
+        show: {
             opacity: 1,
             pathLength: 1,
             fill: "none"
         }
     }
+    const itemTitle = {
+        hidden: { opacity: 0, y: '-40%', x: '-50%'},
+        show: { opacity: 1, y: '-50%', x: '-50%'}
+    }
 
     return (
         <AboutMeWrap id="AboutMe" className="section">
-            <AboutMeIn>
+            <AboutMeIn
+                variants={motionWrap}
+                initial="hidden"
+                whileInView="show"
+            >
                 <div className="bgSvg">
                     <motion.svg width="602" height="694" viewBox="0 0 602 694" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <motion.path d="M2.9892 174.943L301 2.88675L599.011 174.943V519.057L301 691.113L2.9892 519.057V174.943Z" stroke="#7EC9FF" strokeOpacity="0.3" strokeWidth="5"
                         variants={hexaMotion}
                         initial="hidden"
-                        animate="visible"
+                        whileInView="show"
                         transition={{
                             default: { duration: 2, ease: "easeInOut" },
                             fill: { duration: 2, ease: [1, 0, 0.8, 1] }
                         }}/>
                     </motion.svg>
                 </div>
-                <h2 className="bgTitle russo-one-regular">AboutMe</h2>
+                <motion.h2 
+                    className="bgTitle russo-one-regular"
+                    variants={itemTitle}
+                    transition={{duration: 1.2}}
+                >
+                    AboutMe
+                </motion.h2>
                 <div className="content">
                     <h3>"개발도 소통도 육각형으로"</h3>
                     <p className="txt">동해물과 백두산이 마르고 닳도록. 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산. 대한 사람,대한으로 길이 보전하세.</p>
@@ -116,7 +144,7 @@ const AboutMeWrap = styled.section`
         }
     }
 `;
-const AboutMeIn = styled.div`
+const AboutMeIn = styled(motion.div)`
     position: relative;
     box-sizing: border-box;
     height: 100%;

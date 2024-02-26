@@ -1,18 +1,56 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Intro = ({}) => {
+    const motionWrap = {
+        hidden: { 
+            opacity: 0 
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                ease: "linear",
+                duration: 1.5,
+                delayChildren: 0.5,
+                staggerChildren: 0.5
+            }
+        }
+    }
+    const itemTitle = {
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0}
+    }
+    const itemContent = {
+        hidden: { opacity: 0, y: '-48%'},
+        show: { opacity: 1, y: '-50%'}
+    }
+
     return (
         <IntroWrap id="Intro" className="section">
-            <IntroIn>
-                <h2 className="bgTitle russo-one-regular">Intro</h2>
-                <div className="content">
+            <IntroIn
+                variants={motionWrap}
+                initial="hidden"
+                whileInView="show"
+            >
+                <motion.h2 
+                    className="bgTitle russo-one-regular"
+                    variants={itemTitle}
+                    transition={{duration: 0.3}}
+                >
+                    Intro
+                </motion.h2>
+                <motion.div 
+                    className="content" 
+                    variants={itemContent}
+                    transition={{duration: 0.3}}
+                >
                     <div className="intPhoto">사진</div>
                     <div className="intMent">
                         여기다가 <span>멘트</span>를 작성할 예정인데, 아직 잘 생각이 안나네요 ㅠㅠ!! <span>조금 더 고민</span>해서 수정하도록 하겠습니다!!
                         <br />
                         한글 제목 폰트 : SB어그로체 / 영문 제목 폰트 : Russo one / 그밖의 본문용 폰트 : pretendard / web 안전사이즈 1560px / 페이지 형식으로 넘어갈지 그냥 스크롤 형식을 할지 고민중입니다....ㅠㅠ
                     </div>
-                </div>
+                </motion.div>
             </IntroIn>
         </IntroWrap>
     );
@@ -24,7 +62,7 @@ const IntroWrap = styled.section`
     height: 100vh;
     overflow: hidden;
 `;
-const IntroIn = styled.div`
+const IntroIn = styled(motion.div)`
     position: relative;
     height: 100%;
     margin: 0 14px;
