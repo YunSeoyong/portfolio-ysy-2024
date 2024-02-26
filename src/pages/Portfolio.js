@@ -21,7 +21,7 @@ const fetchData = async (setData) => {
     }
 };
 
-const Portfolio = ({}) => {
+const Portfolio = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -105,7 +105,7 @@ const Portfolio = ({}) => {
 export default Portfolio;
 
 const PortfolioWrap = styled.section`
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 `;
     

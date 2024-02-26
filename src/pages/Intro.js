@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Intro = ({}) => {
+const Intro = () => {
     const motionWrap = {
         hidden: { 
             opacity: 0 
@@ -59,7 +59,7 @@ const Intro = ({}) => {
 export default Intro;
 
 const IntroWrap = styled.section`
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 `;
 const IntroIn = styled(motion.div)`

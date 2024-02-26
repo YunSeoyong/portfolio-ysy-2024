@@ -57,7 +57,7 @@ const hexaIcon = [
     { id: 9, name: 'nodejs' },
 ]
 
-const Skill = ({}) => {
+const Skill = () => {
     const [isModal, setIsModal] = useState(false);
     const [select, setSelect] = useState({});
 
@@ -142,7 +142,7 @@ const Skill = ({}) => {
 export default Skill;
 
 const SkillWrap = styled.section`
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 `;
 const SkillIn = styled.div`
