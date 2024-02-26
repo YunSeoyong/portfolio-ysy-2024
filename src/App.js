@@ -64,10 +64,11 @@ function App() {
                     // 어바웃미
                     console.log('어바웃미, down');
                     mainRef.current.scrollTo({
-                        top: pageHeight * 5 + dividerHeight * 5,
+                        top: pageHeight * 4 + dividerHeight * 4,
                         left: 0,
                         behavior: "smooth",
                     });
+                    setCurrentPage(4);
                 }
             } else {
                 if(scrollTop >= 0 && scrollTop < pageHeight) {
