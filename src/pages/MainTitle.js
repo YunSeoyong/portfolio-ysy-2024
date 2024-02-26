@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
 
 const rotateAnimation = keyframes`
@@ -10,11 +11,53 @@ const rotateAnimation = keyframes`
     }
 `;
 
-const MainTitle = ({}) => {
+const MainTitle = () => {
+    const motionSvg = {
+        offscreen: {
+            opacity: 0,
+        },
+        onscreen: {
+            opacity: 1,
+            transition: {
+                ease: "easeOut",
+                duration: 1.8,
+            }
+        }
+    };
+    const motionTitle = {
+        hidden: { 
+            opacity: 0 
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                delay: 0.5,
+                ease: "linear",
+                duration: 0.3,
+                delayChildren: 0.5,
+                staggerChildren: 0.5
+            }
+        }
+    }
+    const titleItem1 = {
+        hidden: { opacity: 0, x: -30 },
+        show: { opacity: 1, x: 0 }
+    }
+    const titleItem2 = {
+        hidden: { opacity: 0, x: 30 },
+        show: { opacity: 1, x: 0 }
+    }
 
     return (
-        <MainTitleWrap id="MainTitle" className="section">
-            <BgSvg>
+        <MainTitleWrap
+            id="MainTitle" className="section"
+
+        >
+            <BgSvg
+                variants={motionSvg}
+                initial="offscreen"
+                animate="onscreen"
+            >
                 <div className="hexa_big">
                     <img src="/assets/svg/hexa-big.svg" alt="hexa-big" />
                 </div>
@@ -26,14 +69,36 @@ const MainTitle = ({}) => {
                 </div>
             </BgSvg>
             <MainTitleIn>
-                <div className="ment">
+                <motion.div 
+                    className="ment" 
+                    variants={motionSvg}
+                    initial="offscreen"
+                    animate="onscreen"
+                >
                     <p><span>육각형</span> 개발자가 되기 위해 노력중인</p>
                     <p>신입 프론트엔드 개발자 <span>윤서용</span>입니다.</p>
-                </div>
-                <div className="title russo-one-regular">
-                    <p className="fe"><span className="hide">FRONTEND</span></p>
-                    <p className="pr"><span className="hide">PORTFOLIO</span></p>
-                </div>
+                </motion.div>
+                <motion.div
+                    className="title russo-one-regular"
+                    variants={motionTitle}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <motion.p
+                        className="fe"
+                        variants={titleItem1}
+                        transition={{duration: 0.5}}
+                    >
+                        <span className="hide">FRONTEND</span>
+                    </motion.p>
+                    <motion.p
+                        className="pr"
+                        variants={titleItem2}
+                        transition={{duration: 0.5}}
+                    >
+                        <span className="hide">PORTFOLIO</span>
+                    </motion.p>
+                </motion.div>
             </MainTitleIn>
         </MainTitleWrap>
     );
@@ -41,12 +106,12 @@ const MainTitle = ({}) => {
 
 export default MainTitle;
 
-const MainTitleWrap = styled.section`
+const MainTitleWrap = styled(motion.section)`
     position: relative;
     height: 100vh;
     overflow: hidden;
 `
-const BgSvg = styled.div`
+const BgSvg = styled(motion.div)`
     position: absolute;
     top: 0;
     left: 0;

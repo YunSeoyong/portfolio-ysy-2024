@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import Triangle from "../component/Triangle";
 import HexaIcons from "../component/HexaIcons";
@@ -69,10 +70,40 @@ const Skill = ({}) => {
         setIsModal(false);
     };
 
+    const itemTitle = {
+        hidden: { opacity: 0, y: 20 },
+        show: { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+                duration: 1.3,
+                ease: "linear"
+            } 
+        }
+    }
+    const itemIcon = {
+        hidden: { opacity: 0},
+        show: { 
+            opacity: 1,
+            transition: {
+                delay: 0.3,
+                duration: 1.8,
+                ease: "linear"
+            } 
+        }
+    }
+
     return (
         <SkillWrap id="Skill" className="section">
             <SkillIn>
-                <h2 className="bgTitle russo-one-regular">Skill</h2>
+                <motion.h2 
+                    className="bgTitle russo-one-regular"
+                    variants={itemTitle}
+                    initial="hidden"
+                    whileInView="show"
+                >
+                    Skill
+                </motion.h2>
                 <div className="content">
                     <div className="hexagon">
                         {
@@ -87,13 +118,18 @@ const Skill = ({}) => {
                             ))
                         }
                     </div>
-                    <div className="hexaContent">
+                    <motion.div 
+                        className="hexaContent"
+                        variants={itemIcon}
+                        initial="hidden"
+                        whileInView="show"
+                    >
                         {
                             hexaIcon.map((it) => (
                                 <HexaIcons key={it.id} {...it} />
                             ))
                         }
-                    </div>
+                    </motion.div>
                 </div>
                 {
                     isModal && <SkillText {...select} />
@@ -114,7 +150,6 @@ const SkillIn = styled.div`
     box-sizing: border-box;
     height: 100%;
     margin: 0 14px;
-    padding-top: 45%;
 
     .bgTitle{
         position: absolute;
@@ -129,10 +164,12 @@ const SkillIn = styled.div`
     }
 
     .content{
-        position: relative;
+        position: absolute;
+        top: 45%;
+        left: 50%;
         width: 310px;
         height: 270px;
-        margin: 0 auto 40px auto;
+        transform: translate(-50%, -50%);
         background-color: transparent;
         
         .hexagon{
@@ -221,7 +258,6 @@ const SkillIn = styled.div`
     // 768 시작
     @media screen and (min-width:768px){
         margin: 0 40px;
-        padding-top: 28%;
 
         .bgTitle{
             font-size: 200px;
@@ -262,11 +298,11 @@ const SkillIn = styled.div`
     @media screen and (min-width:1024px) {
         display: flex;
         align-items: center;
-        padding-top: 86px;
-        margin: 0 7vw;
 
         .content{
-            margin: 0;
+            top: 50%;
+            left: 20px;
+            transform: translate(0, -50%);
         }
     }
     // 1024 끝

@@ -16,8 +16,11 @@ const SkillText = ({id, name, text}) => {
 export default SkillText;
 
 const SkillTextWrap = styled.div`
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60vw;
-    margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
     border: 2px solid var(--main-blue);
@@ -52,7 +55,12 @@ const SkillTextWrap = styled.div`
         }
     }
     @media screen and (min-width:1024px){
-        width: 30vw;
+        top: 50%;
+        bottom: auto;
+        left: auto;
+        right: 20px;
+        width: 36vw;
+        transform: translate(0, -50%);
 
         .skillTextIn{
             .name{
@@ -62,7 +70,7 @@ const SkillTextWrap = styled.div`
         }
     }
     @media screen and (min-width:1600px){
-        width: 25vw;
+        width: 30vw;
 
         .skillTextIn{
             padding: 40px;

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
+import { motion } from "framer-motion";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -26,11 +27,35 @@ const Portfolio = ({}) => {
     useEffect(() => {
         fetchData(setData);
     }, []);
+
+    const motionWrap = {
+        hidden: { 
+            opacity: 0,
+            y: 20,
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: 0.3,
+                ease: "linear",
+                duration: 0.8,
+            }
+        }
+    }
     
     return (
         <PortfolioWrap id="Portfolio" className="section">
-            <PortfolioIn>
-                <h2 className="bgTitle russo-one-regular">Portfolio</h2>
+            <PortfolioIn
+                variants={motionWrap}
+                initial="hidden"
+                whileInView="show"
+            >
+                <h2 
+                    className="bgTitle russo-one-regular"
+                >
+                    Portfolio
+                </h2>
                 <Swiper 
                     pagination={{
                         clickable: true,
@@ -46,13 +71,17 @@ const Portfolio = ({}) => {
                             slidesPerView: 2,
                             spaceBetween: 30,
                         },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 35,
+                        },
                         1200: {
                             slidesPerView: 3,
                             spaceBetween: 40,
                         },
                         1600: {
                             slidesPerView: 3,
-                            spaceBetween: 50,
+                            spaceBetween: 60,
                         }
                     }}
                     className="container"
@@ -80,7 +109,7 @@ const PortfolioWrap = styled.section`
     overflow: hidden;
 `;
     
-const PortfolioIn = styled.div`
+const PortfolioIn = styled(motion.div)`
     box-sizing: border-box;
     padding: 86px 60px 25px 60px;
     overflow: visible;
@@ -142,18 +171,18 @@ const PortfolioIn = styled.div`
     @media screen and (min-width:1600px){
         width: 1600px;
         margin: 0 auto;
-        padding: 106px 40px 75px 40px;
+        padding: 106px 50px 75px 50px;
         overflow: hidden;
 
         .container{
             .swiper-button-prev{
-                left: var(--swiper-navigation-sides-offset, -40px);
+                left: var(--swiper-navigation-sides-offset, -50px);
             }
             .swiper-button-next{
-                right: var(--swiper-navigation-sides-offset, -40px);
+                right: var(--swiper-navigation-sides-offset, -50px);
             }
             .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
-                bottom:  var(--swiper-pagination-bottom, -70px);
+                bottom:  var(--swiper-pagination-bottom, -60px);
             }
         }
     }
