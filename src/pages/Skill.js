@@ -142,6 +142,7 @@ const Skill = () => {
 export default Skill;
 
 const SkillWrap = styled.section`
+    position: relative;
     height: 100dvh;
     overflow: hidden;
 `;
