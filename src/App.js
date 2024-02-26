@@ -64,7 +64,7 @@ function App() {
                     // 어바웃미
                     console.log('어바웃미, down');
                     mainRef.current.scrollTo({
-                        top: pageHeight * 4 + dividerHeight * 4,
+                        top: pageHeight * 5 + dividerHeight * 5,
                         left: 0,
                         behavior: "smooth",
                     });
