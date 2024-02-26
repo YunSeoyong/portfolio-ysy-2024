@@ -26,8 +26,8 @@ const IntroWrap = styled.section`
 `;
 const IntroIn = styled.div`
     position: relative;
+    height: 100%;
     margin: 0 14px;
-    padding: 126px 0 60px;
 
     .bgTitle{
         position: absolute;
@@ -41,6 +41,10 @@ const IntroIn = styled.div`
         opacity: 0.6;
     }
     .content{
+        position: absolute;
+        top: 55%;
+        left: 0;
+        transform: translateY(-50%);
         .intPhoto{
             width: 240px;
             height: 320px;
@@ -62,10 +66,7 @@ const IntroIn = styled.div`
     // 768 시작
     @media screen and (min-width:768px){
         margin: 0 60px;
-        padding: 30% 0 10%;
         .bgTitle{
-            position: absolute;
-            top: 86px;
             right: 0;
             font-size: 148px;
             color: transparent;
@@ -86,13 +87,13 @@ const IntroIn = styled.div`
     // 1024 시작
     @media screen and (min-width:1024px){
         margin: 0 20px;
-        padding: 20% 0 20%;
 
         .bgTitle{
             top: 280px;
             font-size: 200px;
         }
         .content{
+            top: 60%;
             display: flex;
             align-items: end;
 
@@ -112,7 +113,6 @@ const IntroIn = styled.div`
     @media screen and (min-width:1600px){
         width: 1560px;
         margin: 0 auto;
-        padding: 22% 0;
 
         .bgTitle{
             top: 280px;

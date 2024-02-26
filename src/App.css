@@ -46,4 +46,7 @@
     cursor: pointer;
     pointer-events: visible;
     background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
