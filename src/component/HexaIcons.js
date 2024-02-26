@@ -1,11 +1,17 @@
+import { motion } from "framer-motion";
+
 const HexaIcons = ({name}) => {
     return (
-        <p className={name}>
+        <motion.p 
+            className={name}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+        >
             <img 
                 src={`/assets/icon/icon_${name}.png`}
                 alt={name}
             />
-        </p>
+        </motion.p>
     );
 };
 
