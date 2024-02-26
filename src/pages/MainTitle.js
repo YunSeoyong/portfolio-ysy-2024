@@ -73,7 +73,7 @@ const MainTitle = () => {
                     className="ment" 
                     variants={motionSvg}
                     initial="offscreen"
-                    animate="onscreen"
+                    whileInView="onscreen"
                 >
                     <p><span>육각형</span> 개발자가 되기 위해 노력중인</p>
                     <p>신입 프론트엔드 개발자 <span>윤서용</span>입니다.</p>
@@ -82,7 +82,7 @@ const MainTitle = () => {
                     className="title russo-one-regular"
                     variants={motionTitle}
                     initial="hidden"
-                    animate="show"
+                    whileInView="show"
                 >
                     <motion.p
                         className="fe"
