@@ -44,11 +44,18 @@ const Intro = () => {
                     variants={itemContent}
                     transition={{duration: 0.3}}
                 >
-                    <div className="intPhoto">사진</div>
+                    <div className="intPhoto"><img src="/assets/profile_Seoyong.jpg" alt="프로필" /></div>
                     <div className="intMent">
-                        여기다가 <span>멘트</span>를 작성할 예정인데, 아직 잘 생각이 안나네요 ㅠㅠ!! <span>조금 더 고민</span>해서 수정하도록 하겠습니다!!
-                        <br />
-                        한글 제목 폰트 : SB어그로체 / 영문 제목 폰트 : Russo one / 그밖의 본문용 폰트 : pretendard / web 안전사이즈 1560px / 페이지 형식으로 넘어갈지 그냥 스크롤 형식을 할지 고민중입니다....ㅠㅠ
+                        <p>
+                            새로운 도전과 모험을 좋아하는 신입 프론트엔드 개발 지망생 윤서용 입니다!<br />
+                            프론트엔드는 좁고 작은 우물안에 갇혀있던 저에게 새로운 바다가 되었습니다.
+                        </p>
+                        <p>&lt;Hexagonal_Frontend_Developer &#47;&gt;</p>
+                        <p>
+                            제가 목표로 달리고 있는 개발자의 자세입니다.<br />
+                            / 웹 디자인 / 다양한 언어의 경험과 숙련 / 유저 친화적인 ui구현을 위한 연구 / 시각적, 사용적 만족도가 높은 웹 개발 / 빠르게 변하는 트렌드를 좇는 열정 / 다양한 사람들과의 소통 / <br />
+                            아직은 걸음마를 뗀 단계이지만, 무엇 하나 놓치지 않을 육각형의 개발자가 되고자 끊임없이 성장하고 노력하겠습니다.
+                        </p>
                     </div>
                 </motion.div>
             </IntroIn>
@@ -85,10 +92,20 @@ const IntroIn = styled(motion.div)`
         left: 0;
         transform: translateY(-50%);
         .intPhoto{
-            width: 240px;
-            height: 320px;
+            min-width: 260px;
+            width: 60vw;
+            max-width: 500;
+            min-height: 320px;
+            height: 80vw;
+            max-height: 600px;
             margin: 0 auto 30px;
             background-color: #ddd;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
         .intMent{
             font-size: var(--font-size-con);
@@ -114,8 +131,8 @@ const IntroIn = styled(motion.div)`
         }
         .content{
             .intPhoto{
-                width: 400px;
-                height: 500px;
+                max-width: 640px;
+                max-height: 760px;
                 margin: 0 auto 50px;
                 background-color: #ddd;
             }
@@ -132,13 +149,15 @@ const IntroIn = styled(motion.div)`
             font-size: 200px;
         }
         .content{
-            top: 60%;
+            top: 50%;
             display: flex;
             align-items: end;
 
             .intPhoto{
-                width: 40%;
-                height: 420px;
+                width: 40vw;
+                max-width: 500px;
+                height: 65vw;
+                max-height: 600px;
                 margin: 0;
             }
             .intMent{
@@ -159,8 +178,8 @@ const IntroIn = styled(motion.div)`
         }
         .content{
             .intPhoto{
-                width: 30%;
-                height: 520px;
+                max-width: 680px;
+                max-height: 740px;
                 margin: 0;
             }
             .intMent{
@@ -171,3 +190,4 @@ const IntroIn = styled(motion.div)`
     }
     // 1600 끝
 `;
+const Ment = styled.div``;
