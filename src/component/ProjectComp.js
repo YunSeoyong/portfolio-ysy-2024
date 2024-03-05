@@ -17,9 +17,12 @@ const ProjectComp = ({
             <div className="project_in">
                 {/* 앞면 */}
                 <div className="photo">
-                    <img src={`/assets/img/${photomo}`} alt={title} className="mo" />
-                    <img src={`/assets/img/${photota}`} alt={title} className="ta" />
-                    <img src={`/assets/img/${photopc}`} alt={title} className="pc" />
+                    <h3 className="title">{title}</h3>
+                    <p className="thum">
+                        <img src={`/assets/img/${photomo}`} alt={title} className="mo" />
+                        <img src={`/assets/img/${photota}`} alt={title} className="ta" />
+                        <img src={`/assets/img/${photopc}`} alt={title} className="pc" />
+                    </p>
                 </div>
                 {/* 뒷면 */}
                 <div className="info">
@@ -87,13 +90,24 @@ const ProjectWrap = styled.div`
 
         }
         .photo{
-            img{
-                width: 100%;
-                height: auto;
-                object-fit: cover;
+            padding: 25px;
+            .title{
+                font-size: var(--font-size-sm);
+                font-weight: 700;
+                margin-bottom: 20px;
+                color: var(--main-blue);
             }
-            .ta, .pc{
-                display: none;
+            .thum{
+                height: calc(100% - 45px);
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+                .ta, .pc{
+                    display: none;
+                }
             }
         }
         .info{
@@ -181,11 +195,15 @@ const ProjectWrap = styled.div`
 
         .project_in{
             .photo{
-                .ta{
-                    display: block;
-                }
-                .mo, .pc{
-                    display: none;
+                padding: 30px;
+                .thum{
+                    height: calc(100% - 50px);
+                    .ta{
+                        display: block;
+                    }
+                    .mo, .pc{
+                        display: none;
+                    }
                 }
             }
             .info{
@@ -225,6 +243,12 @@ const ProjectWrap = styled.div`
         height: calc(100vh - 300px);
 
         .project_in{
+            .photo{
+                padding: 35px;
+                .thum{
+                    height: calc(100% - 55px);
+                }
+            }
             .info{
                 padding: 35px;
 
@@ -256,15 +280,16 @@ const ProjectWrap = styled.div`
     @media screen and (min-width:1600px){
         .project_in{
             .photo{
-                .pc{
-                    display: block;
-                }
-                .mo, .ta{
-                    display: none;
+                .thum{
+                    .pc{
+                        display: block;
+                    }
+                    .mo, .ta{
+                        display: none;
+                    }
                 }
             }
             .info{
-                padding: 40px;
                 h4{
                     margin-bottom: 1.2vw;
                 }

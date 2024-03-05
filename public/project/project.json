@@ -55,7 +55,7 @@
         "explanation" : "프론트엔드 4명되었으며, 팀장으로 참여하였습니다. 아이콘 제작, 전체적인 ui 및 기술 구현 기획, 브랜치 병합 후의 정리, 바텀 네비게이션,라우터를 이용한 페이지 이동, 메인페이지의 20%, 전역 검색 컴포넌트, 도시 선택 컴포넌트, date-range-picker 라이브러리를 활용한 날짜 선택 컴포넌트, 재사용 가능한 모달창, 여행 일정을 생성 및 관리할 수 있게끔 reducer를 활용하는 파트를 맡았습니다. 백엔드의 부재가 아쉬웠던 프로젝트로, 서버를 구축하고, 데이터베이스를 활용하는 것에 대해 학습할 필요성을 느낀 프로젝트였습니다.",
         "photomo" : "pjt-teamtriple-mo.png",
         "photota" : "pjt-teamtriple-ta.png",
-        "photopc" : "pjt-teamtriple-pc.png",
+        "photopc" : "pjt-teamtriple-ta.png",
         "link" : "https://team-c-triple.web.app",
         "git" : "https://github.com/TeamC-Triple/team-c-triple.git"
     },
@@ -65,9 +65,9 @@
         "subtitle" : "REACT APP",
         "stack" : ["React", "SCSS", "styled components", "Javascript", "Typescript"],
         "explanation" : "Typescript 연습을 하고자 React로 제작한 반응형 웹입니다. SCSS와 styled components로 스타일링 하였습니다. ",
-        "photomo" : "pjt-teamtriple-mo.png",
-        "photota" : "pjt-teamtriple-ta.png",
-        "photopc" : "pjt-teamtriple-pc.png",
+        "photomo" : "pjt-mytodo-mo.png",
+        "photota" : "pjt-mytodo-ta.png",
+        "photopc" : "pjt-mytodo-ta.png",
         "link" : "https://mytodotype.web.app",
         "git" : "https://github.com/YunSeoyong/pjt04-myTodo.git"
     },
