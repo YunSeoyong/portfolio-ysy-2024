@@ -56,7 +56,8 @@ const ProjectComp = ({
 export default ProjectComp
 
 const ProjectWrap = styled.div`
-    height: calc(100vh - 200px);
+    height: calc(100vh - 240px);
+    max-height: 620px;
     perspective: 1000px;
 
     &:hover .project_in{
@@ -99,6 +100,18 @@ const ProjectWrap = styled.div`
             transform: rotateY(180deg);
             padding: 25px;
             overflow-y: auto;
+        
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+                height: 30px;
+                background: var(--sub-blue);
+                border-radius: 50px;
+            }
+            &::-webkit-scrollbar-track {
+                background: rgba(126, 201, 255, 0.2);
+            }
 
             h4{
                 font-size: var(--font-size-sm);

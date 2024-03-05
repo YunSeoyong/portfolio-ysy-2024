@@ -80,8 +80,10 @@ const AboutMe = () => {
                     AboutMe
                 </motion.h2>
                 <div className="content">
-                    <h3>"개발도 소통도 육각형으로"</h3>
-                    <p className="txt">동해물과 백두산이 마르고 닳도록. 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산. 대한 사람,대한으로 길이 보전하세.</p>
+                    <h3>"육각형 개발자를 목표로"</h3>
+                    <p className="txt">
+                        끊임없이 연구하고 학습하며 소통하는 프론트엔드 개발자가 되겠습니다.
+                    </p>
                     <ul className="info">
                         {aboutMeInfo.map((i) => (
                             <li key={i.id}>
@@ -182,6 +184,7 @@ const AboutMeIn = styled(motion.div)`
             margin-bottom: 4vw;
             font-size: var(--font-size-md);
             font-weight: 700;
+            line-height: 1.5em;
             color: #333;
 
             &::before{

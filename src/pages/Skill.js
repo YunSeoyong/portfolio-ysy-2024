@@ -10,32 +10,32 @@ const hexaTri = [
     {
         id: 0,
         rotate: 0,
-        name: 'Jquery',
-        text: 'Jquery의 기본 문법을 이해하고 있고, 라이브러리를 활용할 수 있으며, 이를 이용하여 동적인 웹사이트를 제작할 수 있습니다.',
+        name: 'JavaScript, Jquery',
+        text: 'ES6 문법에 익숙하며, JavaScript와 Jquery의 기본 문법을 이해하고 있고, 라이브러리를 활용할 수 있으며, 이를 이용하여 동적인 웹사이트를 제작할 수 있습니다.',
     },
     {
         id: 1,
         rotate: 60,
-        name: 'React, styled components',
-        text: 'React를 통해 재사용 가능한 컴포넌트를 활용할 수 있고, tyled components를 사용하여 스타일 작업을 할 수 있습니다.',
+        name: 'React, Typescript',
+        text: 'React를 통해 재사용 가능한 컴포넌트를 활용할 수 있고, typescript를 이용하여 안정성을 높일 수 있습니다.',
     },
     {
         id: 2,
         rotate: 120,
-        name: 'HTML5, CSS3',
-        text: 'HTML5, CSS3를 이용하여 웹 전반적인 기초를 수립하고, UI를 설계 및 구현하였으며, 반응형 웹을 구현할 수 있는 능력을 길렀습니다. keyframe을 활용한 애니메이션 기법을 익혔습니다.',
+        name: 'HTML5, CSS3, SCSS',
+        text: 'HTML5, CSS3를 이용하여 웹 전반적인 기초를 수립하고, UI를 설계 및 구현하였으며, 반응형 웹을 구현할 수 있는 능력을 길렀습니다. keyframe을 활용한 애니메이션 기법을 익혔습니다. SCSS를 활용하여 변수와 mixin을 사용해 css를 작성할 수 있습니다.',
     },
     {
         id: 3,
         rotate: 180,
-        name: 'Javascript, Typescript',
-        text: 'ES6문법에 익숙하며, 이를 활용하여 동적인 웹사이트를 제작할 수 있습니다. typescript를 이용하여 안정성을 높일 수 있습니다. ',
+        name: 'styled components, firebase',
+        text: 'styled components를 사용하여 react 스타일 작업을 할 수 있습니다. firebase를 활용해 로그인 페이지를 제작하고 웹을 배포할 수 있습니다.',
     },
     {
         id: 4,
         rotate: 240,
-        name: 'Node.js',
-        text: 'node.js를 활용하여 자바스크립트 환경에서 서버를 구축하고 이를 활용할 수 있습니다.',
+        name: 'Node.js, mongoDB',
+        text: 'node.js를 활용하여 자바스크립트 환경에서 서버를 구축하고 이를 활용할 수 있습니다. mongoDB를 활용해 데이터베이스를 서버와 연결할 수 있습니다.',
     },
     {
         id: 5,
@@ -45,28 +45,33 @@ const hexaTri = [
     },
 ]
 const hexaIcon = [
-    { id: 0, name: 'javascript' },
-    { id: 1, name: 'typescript' },
-    { id: 2, name: 'html5' },
-    { id: 3, name: 'css3' },
-    { id: 4, name: 'react' },
-    { id: 5, name: 'jquery' },
-    { id: 6, name: 'styledcomponents' },
-    { id: 7, name: 'photoshop' },
-    { id: 8, name: 'illustrator' },
-    { id: 9, name: 'nodejs' },
+    { id: 0, name: 'javascript', code: 0 },
+    { id: 1, name: 'jquery', code: 0 },
+    { id: 2, name: 'typescript', code: 1 },
+    { id: 3, name: 'react', code: 1 },
+    { id: 4, name: 'html5', code: 2 },
+    { id: 5, name: 'css3', code: 2 },
+    { id: 6, name: 'scss', code: 2 },
+    { id: 7, name: 'styledcomponents', code: 3 },
+    { id: 8, name: 'firebase', code: 3 },
+    { id: 9, name: 'nodejs', code: 4 },
+    { id: 10, name: 'mongodb', code: 4 },
+    { id: 11, name: 'photoshop', code: 5 },
+    { id: 12, name: 'illustrator', code: 5 },
 ]
 
 const Skill = () => {
     const [isModal, setIsModal] = useState(false);
     const [select, setSelect] = useState({});
+    const [text, setText] = useState({});
 
-    const mouseoverTri = (item) => {
+    const mouseoverIcon = (item) => {
         setIsModal(true);
         setSelect(item);
+        setText(hexaTri[item.code]);
         return select;
     };
-    const mouseoutTri = () => {
+    const mouseoutIcon = () => {
         setIsModal(false);
     };
 
@@ -111,9 +116,6 @@ const Skill = () => {
                                 <Triangle 
                                 key={tri.id} 
                                 {...tri}
-                                mouseoverTri={() => {mouseoverTri(tri)}}
-                                mouseoutTri={mouseoutTri}
-                                isModal={isModal}
                                 />
                             ))
                         }
@@ -126,13 +128,17 @@ const Skill = () => {
                     >
                         {
                             hexaIcon.map((it) => (
-                                <HexaIcons key={it.id} {...it} />
+                                <HexaIcons 
+                                    key={it.id} {...it}
+                                    over={() => {mouseoverIcon(it)}}
+                                    out={mouseoutIcon}
+                                />
                             ))
                         }
                     </motion.div>
                 </div>
                 {
-                    isModal && <SkillText {...select} />
+                    isModal && <SkillText {...text} />
                 }
             </SkillIn>
         </SkillWrap>
@@ -202,57 +208,77 @@ const SkillIn = styled.div`
             position: absolute;
             width: 35px;
             height: 35px;
+            padding: 8px;
             cursor: pointer;
-            z-index: -1;
+            z-index: 5;
+            transition: 0.3s;
 
             img{
                 width: 100%;
                 height: auto;
             }
+
+            &:hover {
+                opacity: 0.7;
+            }
         }
-        .javascript{
-            top: 7%;
-            left: 37%;
+        .styledcomponents{
+            top: 5%;
+            left: 35%;
         }
-        .typescript{
-            top: 7%;
-            right: 37%;
+        .firebase{
+            top: 5%;
+            right: 35%;
         }
         .html5{
             width: 40px;
             height: 40px;
-            top: 17%;
-            left: 20%;
+            top: 15%;
+            left: 18%;
         }
         .css3{
             width: 40px;
             height: 40px;
-            top: 31%;
-            left: 12%;
+            top: 29%;
+            left: 10%;
+        }
+        .scss{
+            width: 40px;
+            height: 40px;
+            top: 29%;
+            left: 26%;
         }
         .react{
-            bottom: 33%;
-            left: 13%;
+            bottom: 31%;
+            left: 11%;
         }
-        .styledcomponents{
-            bottom: 17%;
-            left: 20%;
+        .typescript{
+            bottom: 15%;
+            left: 18%;
         }
         .jquery{
-            bottom: 7%;
-            left: 45%;
+            bottom: 5%;
+            right: 35%;
+        }
+        .javascript{
+            bottom: 5%;
+            left: 35%;
         }
         .photoshop{
-            bottom: 33%;
-            right: 13%;
+            bottom: 31%;
+            right: 11%;
         }
         .illustrator{
-            bottom: 17%;
-            right: 20%;
+            bottom: 15%;
+            right: 18%;
         }
         .nodejs{
-            top: 25%;
-            right: 17%;
+            top: 16%;
+            right: 18%;
+        }
+        .mongodb{
+            top: 31%;
+            right: 12%;
         }
     }
 
@@ -287,8 +313,9 @@ const SkillIn = styled.div`
             p{
                 width: 60px;
                 height: 60px;
+                padding: 12px;
             }
-            .html5, .css3{
+            .html5, .css3, .scss{
                 width: 65px;
                 height: 65px;
             }
@@ -304,6 +331,11 @@ const SkillIn = styled.div`
             top: 50%;
             left: 20px;
             transform: translate(0, -50%);
+        }
+        .hexaContent{
+            p{
+                padding: 15px;
+            }
         }
     }
     // 1024 끝
@@ -334,6 +366,7 @@ const SkillIn = styled.div`
             p{
                 width: 60px;
                 height: 60px;
+                padding: 20px;
             }
             .html5, .css3{
                 width: 65px;

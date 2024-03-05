@@ -10,7 +10,7 @@ const Intro = ({currentPage}) => {
         if (currentPage === 1) {
             const timer = setTimeout(() => {
                 setTypingStarted(true);
-            }, 1500);
+            }, 1300);
 
             return () => {
                 clearTimeout(timer)
@@ -64,8 +64,7 @@ const Intro = ({currentPage}) => {
                     <div className="intPhoto"><img src="/assets/profile_Seoyong.jpg" alt="프로필" /></div>
                     <div className="intMent">
                         <p style={{ marginBottom: "5px" }}>
-                            <Bold>새로운 도전과 모험</Bold>을 좋아하는 신입 프론트엔드 개발 지망생 윤서용 입니다!<br />
-                            프론트엔드는 좁고 작은 우물안에 갇혀있던 저에게 <Bold>새로운 바다</Bold>가 되었습니다.
+                            <Bold>새로운 도전과 모험</Bold>을 좋아하는 신입 프론트엔드 개발 지망생 윤서용 입니다!
                         </p>
                         {typingStarted && (
                             <Typewriter
@@ -79,8 +78,8 @@ const Intro = ({currentPage}) => {
                         )}
                         <p>
                             제가 목표로 달리고 있는 개발자의 자세입니다.<br />
-                            / <Tag>웹 디자인</Tag> / <Tag>다양한 언어의 경험과 숙련</Tag> / <Tag>유저 친화적인 ui구현을 위한 연구</Tag> / <Tag>시각적, 사용적 만족도가 높은 웹 개발</Tag> / <Tag>빠르게 변하는 트렌드를 좇는 열정</Tag> / <Tag>다양한 사람들과의 소통</Tag> / <br />
-                            아직은 걸음마를 뗀 단계이지만, 무엇 하나 놓치지 않을 <Bold>육각형 개발자</Bold>가 되고자 끊임없이 성장하고 노력하겠습니다.
+                            / <Tag>웹 디자인</Tag> / <Tag>다양한 기술의 경험과 숙련</Tag> / <Tag>유저 친화적인 ui구현을 위한 연구</Tag> / <Tag>시각적, 사용적 만족도가 높은 웹 개발</Tag> / <Tag>빠르게 변하는 트렌드를 좇는 열정</Tag> / <Tag>다양한 사람들과의 소통</Tag> / <br />
+                            아직은 걸음마를 뗀 단계이지만, 균형잡힌 <Bold>육각형 개발자</Bold>가 되고자 끊임없이 성장하고 노력하겠습니다.
                         </p>
                     </div>
                 </motion.div>
@@ -138,7 +137,7 @@ const IntroIn = styled(motion.div)`
             font-size: var(--font-size-con);
             line-height: 1.6em;
             color: #333;
-            letter-spacing: -0.2px;
+            letter-spacing: -0.3px;
 
             .Typewriter{
                 margin-bottom: 5px;

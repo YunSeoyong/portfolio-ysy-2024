@@ -15,7 +15,6 @@ function App() {
     const dividerHeight = 5;
     const [currentPage, setCurrentPage] = useState(0);
     const sectionRef = useRef([]);
-    console.log(currentPage);
 
     useEffect(() => {
         const wheelHandler = (e) => {
@@ -27,7 +26,7 @@ function App() {
             if (deltaY > 0) {
                 if(scrollTop >= 0 && scrollTop < pageHeight) {
                     // 메인타이틀
-                    console.log('메인타이틀, down');
+                    // console.log('메인타이틀, down');
                     mainRef.current.scrollTo({
                         top: pageHeight + dividerHeight,
                         left: 0,
@@ -36,7 +35,7 @@ function App() {
                     setCurrentPage(1);
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                     // 인트로
-                    console.log('인트로, down');
+                    // console.log('인트로, down');
                     mainRef.current.scrollTo({
                         top: pageHeight * 2 + dividerHeight * 2,
                         left: 0,
@@ -45,7 +44,7 @@ function App() {
                     setCurrentPage(2);
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
                     // 스킬
-                    console.log('스킬, down');
+                    // console.log('스킬, down');
                     mainRef.current.scrollTo({
                         top: pageHeight * 3 + dividerHeight * 3,
                         left: 0,
@@ -54,7 +53,7 @@ function App() {
                     setCurrentPage(3);
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4) {
                     // 포트폴리오
-                    console.log('포트폴리오, down');
+                    // console.log('포트폴리오, down');
                     mainRef.current.scrollTo({
                         top: pageHeight * 4 + dividerHeight * 4,
                         left: 0,
@@ -63,7 +62,7 @@ function App() {
                     setCurrentPage(4);
                 } else {
                     // 어바웃미
-                    console.log('어바웃미, down');
+                    // console.log('어바웃미, down');
                     mainRef.current.scrollTo({
                         top: pageHeight * 4 + dividerHeight * 4,
                         left: 0,
@@ -74,7 +73,7 @@ function App() {
             } else {
                 if(scrollTop >= 0 && scrollTop < pageHeight) {
                     // 메인타이틀
-                    console.log('메인타이틀, up');
+                    // console.log('메인타이틀, up');
                     mainRef.current.scrollTo({
                         top: 0,
                         left: 0,
@@ -82,7 +81,7 @@ function App() {
                     });
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                     // 인트로
-                    console.log('인트로, up');
+                    // console.log('인트로, up');
                     mainRef.current.scrollTo({
                         top: 0,
                         left: 0,
@@ -91,7 +90,7 @@ function App() {
                     setCurrentPage(0);
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
                     // 스킬
-                    console.log('스킬, up');
+                    // console.log('스킬, up');
                     mainRef.current.scrollTo({
                         top: pageHeight + dividerHeight,
                         left: 0,
@@ -100,7 +99,7 @@ function App() {
                     setCurrentPage(1);
                 } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4) {
                     // 포트폴리오
-                    console.log('포트폴리오, up');
+                    // console.log('포트폴리오, up');
                     mainRef.current.scrollTo({
                         top: pageHeight * 2 + dividerHeight * 2,
                         left: 0,
@@ -109,7 +108,7 @@ function App() {
                     setCurrentPage(2);
                 } else {
                     // 어바웃미
-                    console.log('어바웃미, up');
+                    // console.log('어바웃미, up');
                     mainRef.current.scrollTo({
                         top: pageHeight * 3 + dividerHeight * 3,
                         left: 0,
@@ -121,6 +120,7 @@ function App() {
         };
         const mainRefCurrent = mainRef.current;
         mainRefCurrent.addEventListener("wheel", wheelHandler);
+        console.log('신입 프론트엔드 개발자 윤서용의 포트폴리오 입니다!');
         return () => {
             mainRefCurrent.removeEventListener("wheel", wheelHandler);
         }

@@ -65,23 +65,23 @@ const Portfolio = () => {
                     breakpoints={{
                         320: {
                             slidesPerView: 1,
-                            spaceBetween: 20,
+                            spaceBetween: 30,
                         },
                         768: {
                             slidesPerView: 2,
-                            spaceBetween: 30,
+                            spaceBetween: 40,
                         },
                         1024: {
                             slidesPerView: 3,
-                            spaceBetween: 35,
+                            spaceBetween: 45,
                         },
                         1200: {
                             slidesPerView: 3,
-                            spaceBetween: 40,
+                            spaceBetween: 50,
                         },
                         1600: {
-                            slidesPerView: 3,
-                            spaceBetween: 60,
+                            slidesPerView: 4,
+                            spaceBetween: 50,
                         }
                     }}
                     className="container"
@@ -112,7 +112,7 @@ const PortfolioWrap = styled.section`
     
 const PortfolioIn = styled(motion.div)`
     box-sizing: border-box;
-    padding: 86px 60px 25px 60px;
+    padding: 86px 70px 35px 70px;
     overflow: visible;
 
     .bgTitle {
@@ -138,7 +138,7 @@ const PortfolioIn = styled(motion.div)`
         }
 
         .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
-            bottom:  var(--swiper-pagination-bottom, -30px);
+            bottom:  var(--swiper-pagination-bottom, -40px);
         }
     }
 
@@ -163,7 +163,7 @@ const PortfolioIn = styled(motion.div)`
         }
     }
     @media screen and (min-width:1200px){
-        padding: 106px 60px 0 60px;
+        padding: 106px 80px 0 80px;
 
         .bgTitle{
             margin-bottom: 48px;
@@ -172,15 +172,15 @@ const PortfolioIn = styled(motion.div)`
     @media screen and (min-width:1600px){
         width: 1600px;
         margin: 0 auto;
-        padding: 106px 50px 75px 50px;
+        padding: 106px 40px 75px 40px;
         overflow: hidden;
 
         .container{
             .swiper-button-prev{
-                left: var(--swiper-navigation-sides-offset, -50px);
+                left: var(--swiper-navigation-sides-offset, -30px);
             }
             .swiper-button-next{
-                right: var(--swiper-navigation-sides-offset, -50px);
+                right: var(--swiper-navigation-sides-offset, -30px);
             }
             .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
                 bottom:  var(--swiper-pagination-bottom, -60px);
