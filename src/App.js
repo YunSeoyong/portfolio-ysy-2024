@@ -15,12 +15,13 @@ function App() {
     const dividerHeight = 5;
     const [currentPage, setCurrentPage] = useState(0);
     const sectionRef = useRef([]);
+    console.log(currentPage);
 
     useEffect(() => {
         const wheelHandler = (e) => {
             e.preventDefault();
             const { deltaY } = e;
-            const { scrollTop } = mainRefCurrent;
+            const { scrollTop } = mainRef.current;
             const pageHeight = window.innerHeight;
 
             if (deltaY > 0) {
@@ -135,7 +136,7 @@ function App() {
             />
             <div ref={(el) => sectionRef.current[0] = el}><MainTitle /></div>
             <div className="divider"></div>
-            <div ref={(el) => sectionRef.current[1] = el}><Intro /></div>
+            <div ref={(el) => sectionRef.current[1] = el}><Intro currentPage={currentPage} /></div>
             <div className="divider"></div>
             <div ref={(el) => sectionRef.current[2] = el}><Skill /></div>
             <div className="divider"></div>
