@@ -171,9 +171,8 @@ const AboutMeIn = styled(motion.div)`
         transform: translate(-50%, -50%);
         font-size: var(--font-size-tl);
         color: transparent;
-        background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
+        background: linear-gradient(180deg, rgb(214, 238, 255), rgb(255, 255, 234));
         -webkit-background-clip: text;
-        opacity: 0.6;
         z-index: -1;
     }
     .content{

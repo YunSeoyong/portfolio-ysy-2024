@@ -327,6 +327,11 @@ const SkillIn = styled.div`
         display: flex;
         align-items: center;
 
+        .bgTitle{
+            left: auto;
+            right: 30px;
+        }
+
         .content{
             top: 50%;
             left: 20px;

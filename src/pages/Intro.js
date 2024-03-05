@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Typewriter from 'typewriter-effect';
+import Typist from 'react-typist-component';
 
 const Intro = ({currentPage}) => {
     const [typingStarted, setTypingStarted] = useState(false);
@@ -10,7 +11,7 @@ const Intro = ({currentPage}) => {
         if (currentPage === 1) {
             const timer = setTimeout(() => {
                 setTypingStarted(true);
-            }, 1300);
+            }, 200);
 
             return () => {
                 clearTimeout(timer)
@@ -67,14 +68,20 @@ const Intro = ({currentPage}) => {
                             <Bold>새로운 도전과 모험</Bold>을 좋아하는 신입 프론트엔드 개발 지망생 윤서용 입니다!
                         </p>
                         {typingStarted && (
-                            <Typewriter
-                                options={{
-                                    strings: ['Hexagonal_Frontend_Developer'],
-                                    autoStart: true,
-                                    loop: true,
-                                    pauseFor: 10000,
-                                }}
-                            />
+                            // <Typewriter
+                            //     options={{
+                            //         strings: ['Hexagonal_Frontend_Developer'],
+                            //         autoStart: true,
+                            //         loop: true,
+                            //         pauseFor: 10000,
+                            //     }}
+                            // />
+                            <Typist
+                                startDelay={700}
+                                cursor={<span className="bar">|</span>}
+                            >
+                                <span className="strong">Hexagonal_Frontend_Developer</span>
+                            </Typist>
                         )}
                         <p>
                             제가 목표로 달리고 있는 개발자의 자세입니다.<br />
@@ -139,16 +146,17 @@ const IntroIn = styled(motion.div)`
             color: #333;
             letter-spacing: -0.3px;
 
-            .Typewriter{
-                margin-bottom: 5px;
-
-                .Typewriter__wrapper{
-                    font-size: var(--font-size-sm);
-                    font-weight: 600;
-                    color: var(--main-blue);
-                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-                }
+            .bar{
+                font-weight: 300;
+                color: #aaa;
+                margin-left: 1px;
             }
+            .strong{
+                margin-bottom: 5px;
+                font-size: var(--font-size-sm);
+                font-weight: 600;
+                color: var(--main-blue);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
         }
     }
@@ -234,8 +242,9 @@ const Bold = styled.span`
         display: block;
         position: absolute;
         bottom: -1px;
+        left: -1px;
         width: 105%;
-        height: 1rem;
+        height: 1.5rem;
         background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
         z-index: -1;
     }

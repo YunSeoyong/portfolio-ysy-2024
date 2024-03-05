@@ -43,7 +43,7 @@
     bottom: initial;
     transform: translateX(-50%);
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
+    background-image: linear-gradient(90deg, rgb(214, 238, 255), rgb(255, 255, 234));
     max-height: initial;
     cursor: pointer;
     pointer-events: visible;

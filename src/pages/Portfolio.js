@@ -122,7 +122,7 @@ const PortfolioIn = styled(motion.div)`
         color: transparent;
         background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
-        opacity: 0.6;
+        opacity: 1;
     }
     .container{
         overflow: visible;
