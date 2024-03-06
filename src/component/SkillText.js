@@ -16,7 +16,7 @@ const SkillText = ({id, name, text}) => {
 export default SkillText;
 
 const SkillTextWrap = styled.div`
-    position: absolute;
+    position: fixed;
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);

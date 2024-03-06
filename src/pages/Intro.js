@@ -157,6 +157,7 @@ const IntroIn = styled.div`
             color: transparent;
             background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
             -webkit-background-clip: text;
+            z-index: -1;
         }
         .content{
             top: 50%;
