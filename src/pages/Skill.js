@@ -168,7 +168,6 @@ const SkillWrap = styled.section`
     position: relative;
     height: 100vh;
     height: 100dvh;
-    overflow: hidden;
 `;
 const SkillIn = styled.div`
     position: relative;
