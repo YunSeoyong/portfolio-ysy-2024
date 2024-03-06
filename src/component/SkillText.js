@@ -17,7 +17,7 @@ export default SkillText;
 
 const SkillTextWrap = styled.div`
     position: absolute;
-    top: 60%;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     width: 60vw;
@@ -41,7 +41,6 @@ const SkillTextWrap = styled.div`
 
     @media screen and (min-width:768px){
         width: 50vw;
-        top: 65%;
 
         .skillTextIn{
             padding: 30px;
@@ -56,7 +55,7 @@ const SkillTextWrap = styled.div`
         }
     }
     @media screen and (min-width:1024px){
-        top: 50%;
+        top: 60%;
         bottom: auto;
         left: auto;
         right: 20px;
