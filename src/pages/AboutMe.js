@@ -29,8 +29,8 @@ const AboutMe = () => {
             opacity: 1,
             transition: {
                 ease: "linear",
-                duration: 1.2,
-                delayChildren: 0.3,
+                duration: 1.3,
+                delayChildren: 0.5,
                 staggerChildren: 0.5
             }
         }
@@ -49,7 +49,7 @@ const AboutMe = () => {
         }
     }
     const itemTitle = {
-        hidden: { opacity: 0, y: '-40%', x: '-50%'},
+        hidden: { opacity: 0, y: '-35%', x: '-50%'},
         show: { opacity: 1, y: '-50%', x: '-50%'}
     }
 
@@ -75,7 +75,7 @@ const AboutMe = () => {
                 <motion.h2 
                     className="bgTitle russo-one-regular"
                     variants={itemTitle}
-                    transition={{duration: 1.2}}
+                    transition={{duration: 0.8}}
                 >
                     AboutMe
                 </motion.h2>
@@ -171,9 +171,8 @@ const AboutMeIn = styled(motion.div)`
         transform: translate(-50%, -50%);
         font-size: var(--font-size-tl);
         color: transparent;
-        background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
+        background: linear-gradient(180deg, rgb(202, 233, 255), rgb(255, 255, 227));
         -webkit-background-clip: text;
-        opacity: 0.6;
         z-index: -1;
     }
     .content{

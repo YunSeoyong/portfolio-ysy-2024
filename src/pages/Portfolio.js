@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { motion } from "framer-motion";
+import Typist from 'react-typist-component';
+import { useSwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -23,10 +25,17 @@ const fetchData = async (setData) => {
 
 const Portfolio = () => {
     const [data, setData] = useState([]);
-
+    const [typingStarted, setTypingStarted] = useState(false);
+    const swiperSlide = useSwiperSlide();
+    
     useEffect(() => {
         fetchData(setData);
     }, []);
+
+    useEffect(() => {
+        swiperSlide.isActive ? setTypingStarted(true) : setTypingStarted(false);
+    }, [swiperSlide]);
+
 
     const motionWrap = {
         hidden: { 
@@ -56,6 +65,15 @@ const Portfolio = () => {
                 >
                     Portfolio
                 </h2>
+                <Type>    
+                    {typingStarted && 
+                        <Typist
+                            startDelay={1000}
+                        >
+                            <p className="type">Hover or Touch!</p>
+                        </Typist>
+                    }
+                </Type>
                 <Swiper 
                     pagination={{
                         clickable: true,
@@ -116,13 +134,13 @@ const PortfolioIn = styled(motion.div)`
     overflow: visible;
 
     .bgTitle {
-        margin-bottom: 24px;
+        margin-bottom: 40px;
         text-align: center;
         font-size: 26px;
         color: transparent;
         background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
-        opacity: 0.6;
+        opacity: 1;
     }
     .container{
         overflow: visible;
@@ -146,7 +164,7 @@ const PortfolioIn = styled(motion.div)`
         padding-top: 106px;
 
         .bgTitle{
-            margin-bottom: 36px;
+            margin-bottom: 48px;
             font-size: var(--font-size-md);
         }
 
@@ -162,11 +180,11 @@ const PortfolioIn = styled(motion.div)`
             }
         }
     }
-    @media screen and (min-width:1200px){
+    @media screen and (min-width:1024px){
         padding: 106px 80px 0 80px;
 
         .bgTitle{
-            margin-bottom: 48px;
+            margin-bottom: 60px;
         }
     }
     @media screen and (min-width:1600px){
@@ -186,5 +204,25 @@ const PortfolioIn = styled(motion.div)`
                 bottom:  var(--swiper-pagination-bottom, -60px);
             }
         }
+    }
+`;
+const Type = styled.div`
+    position: absolute;
+    top: 115px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .type{
+        font-size: var(--font-size-con);
+        font-weight: 600;
+        color: var(--main-yellow);
+        opacity: 0.4;
+    }
+
+    @media screen and (min-width:768px) {
+        top: 148px;
+    }
+    @media screen and (min-width:1024px) {
+        top: 152px;
     }
 `;

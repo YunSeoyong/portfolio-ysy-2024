@@ -1,85 +1,76 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Typewriter from 'typewriter-effect';
+import Typist from 'react-typist-component';
+import { useSwiperSlide } from "swiper/react";
 
-const Intro = ({currentPage}) => {
+const Intro = () => {
     const [typingStarted, setTypingStarted] = useState(false);
+    const swiperSlide = useSwiperSlide();
 
     useEffect(() => {
-        if (currentPage === 1) {
-            const timer = setTimeout(() => {
-                setTypingStarted(true);
-            }, 1300);
+        swiperSlide.isActive ? setTypingStarted(true) : setTypingStarted(false);
+    }, [swiperSlide]);
 
-            return () => {
-                clearTimeout(timer)
-                setTypingStarted(false);
-            };
-        }
-    }, [currentPage]);
-
-    const motionWrap = {
-        hidden: {
-            opacity: 0
-        },
-        show: {
-            opacity: 1,
+    const itemTitle = {
+        hidden: { opacity: 0, y: 30 },
+        show: { 
+            opacity: 0.7, 
+            y: 0,
             transition: {
-                ease: "linear",
-                duration: 1.5,
-                delayChildren: 0.5,
-                staggerChildren: 0.5
+                delay: 0.3,
+                duration: 0.8
             }
         }
     }
-    const itemTitle = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
-    }
     const itemContent = {
         hidden: { opacity: 0, y: '-48%' },
-        show: { opacity: 1, y: '-50%' }
+        show: { 
+            opacity: 1,
+            y: '-50%',
+            transition: {
+                delay: 0.8,
+                duration: 0.8
+            }
+        }
     }
 
     return (
         <IntroWrap id="Intro" className="section">
-            <IntroIn
-                variants={motionWrap}
-                initial="hidden"
-                whileInView="show"
-            >
+            <IntroIn>
                 <motion.h2
                     className="bgTitle russo-one-regular"
                     variants={itemTitle}
-                    transition={{ duration: 0.3 }}
+                    initial="hidden"
+                    whileInView="show"
                 >
                     Intro
                 </motion.h2>
                 <motion.div
                     className="content"
                     variants={itemContent}
-                    transition={{ duration: 0.3 }}
+                    initial="hidden"
+                    whileInView="show"
                 >
                     <div className="intPhoto"><img src="/assets/profile_Seoyong.jpg" alt="프로필" /></div>
                     <div className="intMent">
-                        <p style={{ marginBottom: "5px" }}>
+                        <p style={{ marginBottom: "15px" }}>
                             <Bold>새로운 도전과 모험</Bold>을 좋아하는 신입 프론트엔드 개발 지망생 윤서용 입니다!
                         </p>
-                        {typingStarted && (
-                            <Typewriter
-                                options={{
-                                    strings: ['Hexagonal_Frontend_Developer'],
-                                    autoStart: true,
-                                    loop: true,
-                                    pauseFor: 10000,
-                                }}
-                            />
-                        )}
+                        <div className="type">
+                            {typingStarted && 
+                                <Typist
+                                    cursor={<span className="bar">|</span>}
+                                    startDelay={1000}
+                                >
+                                    <span className="strong">Hexagonal_Frontend_Developer</span>
+                                </Typist>
+                            }
+                        </div>
                         <p>
                             제가 목표로 달리고 있는 개발자의 자세입니다.<br />
-                            / <Tag>웹 디자인</Tag> / <Tag>다양한 기술의 경험과 숙련</Tag> / <Tag>유저 친화적인 ui구현을 위한 연구</Tag> / <Tag>시각적, 사용적 만족도가 높은 웹 개발</Tag> / <Tag>빠르게 변하는 트렌드를 좇는 열정</Tag> / <Tag>다양한 사람들과의 소통</Tag> / <br />
-                            아직은 걸음마를 뗀 단계이지만, 균형잡힌 <Bold>육각형 개발자</Bold>가 되고자 끊임없이 성장하고 노력하겠습니다.
+                            / <Tag>깔끔한 웹 디자인</Tag> / <Tag>다양한 스택의 경험과 숙련</Tag> / <Tag>유저 친화적 ui구현</Tag> / <Tag>시각적, 사용적 만족감</Tag> / <Tag>빠르게 변하는 트렌드를 좇는 센스</Tag> / <Tag>다양한 사람들과의 소통</Tag> / <br />
+                            아직은 걸음마를 뗀 단계이지만, 여섯가지를 모두 잡는 균형잡힌 <Bold>육각형 개발자</Bold>가 되고자 끊임없이 성장하고 노력하겠습니다.
                         </p>
                     </div>
                 </motion.div>
@@ -95,21 +86,20 @@ const IntroWrap = styled.section`
     height: 100dvh;
     overflow: hidden;
 `;
-const IntroIn = styled(motion.div)`
+const IntroIn = styled.div`
     position: relative;
     height: 100%;
     margin: 0 14px;
 
     .bgTitle{
         position: absolute;
-        top: 86px;
-        right: 30px;
-        z-index: -1;
+        top: 60px;
+        right: 0;
+        z-index: 1;
         font-size: 72px;
         color: transparent;
         background: linear-gradient(180deg, #7EC9FF, #FCFBBC);
         -webkit-background-clip: text;
-        opacity: 0.6;
     }
     .content{
         position: absolute;
@@ -117,12 +107,12 @@ const IntroIn = styled(motion.div)`
         left: 0;
         transform: translateY(-50%);
         .intPhoto{
-            min-width: 260px;
-            width: 60vw;
-            max-width: 380px;
-            min-height: 320px;
-            height: 80vw;
-            max-height: 520px;
+            min-width: 220px;
+            width: 40vw;
+            max-width: 320px;
+            min-height: 280px;
+            height: 70vw;
+            max-height: 420px;
             margin: 0 auto 30px;
             background-color: #ddd;
             overflow: hidden;
@@ -139,16 +129,22 @@ const IntroIn = styled(motion.div)`
             color: #333;
             letter-spacing: -0.3px;
 
-            .Typewriter{
-                margin-bottom: 5px;
-
-                .Typewriter__wrapper{
+            .bar{
+                font-weight: 300;
+                color: #aaa;
+                margin-left: 1px;
+            }
+            .type{
+                width: 100%;
+                height: 5vw;
+                max-height: 30px;
+                margin-bottom: 10px;
+                .strong{
                     font-size: var(--font-size-sm);
                     font-weight: 600;
                     color: var(--main-blue);
-                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 }
-            }
             }
         }
     }
@@ -233,9 +229,11 @@ const Bold = styled.span`
         content: "";
         display: block;
         position: absolute;
+        top: 7px;
         bottom: -1px;
+        left: -1px;
         width: 105%;
-        height: 1rem;
+        height: auto;
         background-image: linear-gradient(90deg, #7EC9FF, #FBFBBD);
         z-index: -1;
     }
@@ -257,6 +255,7 @@ const Tag = styled.span`
         border-radius: 50%;
         background: var(--sub-blue);
         transition: 0.2s;
+        opacity: 0;
     }
 
     &:hover {
@@ -264,5 +263,6 @@ const Tag = styled.span`
     }
     &:hover::before{
         top: -2px;
+        opacity: 1;
     }
 `;

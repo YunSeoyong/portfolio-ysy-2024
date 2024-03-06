@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
+import { useSwiper } from "swiper/react";
 
 
 const rotateAnimation = keyframes`
@@ -10,8 +12,38 @@ const rotateAnimation = keyframes`
         transform: rotate(360deg);
     }
 `;
+const roundAnimation = keyframes`
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 40px rgba(124, 197, 250, 0.05);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+`;
+const arrowAnimation = keyframes`
+    0% {
+        transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-45deg) translate(-5px, 5px);
+        opacity: 0;
+    }
+`;
 
-const MainTitle = () => {
+const MainTitle = ({swiperRef}) => {
+    const swiper = useSwiper();
+
     const motionSvg = {
         offscreen: {
             opacity: 0,
@@ -25,8 +57,8 @@ const MainTitle = () => {
         }
     };
     const motionTitle = {
-        hidden: { 
-            opacity: 0 
+        hidden: {
+            opacity: 0
         },
         show: {
             opacity: 1,
@@ -47,11 +79,31 @@ const MainTitle = () => {
         hidden: { opacity: 0, x: 30 },
         show: { opacity: 1, x: 0 }
     }
+    const motionScroll = {
+        hidden: { 
+            opacity: 0, 
+            x: '-50%',
+            y: -10
+        },
+        show: { 
+            opacity: 1, 
+            x: '-50%',
+            y: 0,
+            transition: {
+                delay: 1,
+                ease: "linear",
+                duration: 0.5
+            }
+        }
+    }
+    
+    const onClickBtn = () => {
+        swiper && swiper.slideNext();
+    }
 
     return (
         <MainTitleWrap
             id="MainTitle" className="section"
-
         >
             <BgSvg
                 variants={motionSvg}
@@ -69,14 +121,12 @@ const MainTitle = () => {
                 </div>
             </BgSvg>
             <MainTitleIn>
-                <motion.div 
-                    className="ment" 
+                <motion.div
+                    className="ment"
                     variants={motionSvg}
                     initial="offscreen"
                     whileInView="onscreen"
                 >
-                    {/* <p><span>육각형</span> 개발자가 되기 위해 노력중인</p>
-                    <p>프론트엔드 개발자 지망생 <span>윤서용</span>입니다.</p> */}
                 </motion.div>
                 <motion.div
                     className="title russo-one-regular"
@@ -87,18 +137,26 @@ const MainTitle = () => {
                     <motion.p
                         className="fe"
                         variants={titleItem1}
-                        transition={{duration: 0.5}}
+                        transition={{ duration: 0.5 }}
                     >
                         <span className="hide">FRONTEND</span>
                     </motion.p>
                     <motion.p
                         className="pr"
                         variants={titleItem2}
-                        transition={{duration: 0.5}}
+                        transition={{ duration: 0.5 }}
                     >
                         <span className="hide">PORTFOLIO</span>
                     </motion.p>
                 </motion.div>
+                <Scrolling
+                    onClick={onClickBtn}
+                    variants={motionScroll}
+                    initial="hidden"
+                    whileInView="show"
+                >
+                    <span className="arrow"></span>
+                </Scrolling>
             </MainTitleIn>
         </MainTitleWrap>
     );
@@ -126,6 +184,7 @@ const BgSvg = styled(motion.div)`
         width: 340px;
         height: 393px;
         animation: ${rotateAnimation} 25s linear infinite;
+        -webkit-animation: ${rotateAnimation} 25s linear infinite;
 
         img{
             width: 100%;
@@ -139,6 +198,7 @@ const BgSvg = styled(motion.div)`
         width: 222px;
         height: 192px;
         animation: ${rotateAnimation} 15s linear infinite;
+        -webkit-animation: ${rotateAnimation} 15s linear infinite;
 
         img{
             width: 100%;
@@ -152,6 +212,7 @@ const BgSvg = styled(motion.div)`
         width: 117px;
         height: 127px;
         animation: ${rotateAnimation} 13s linear infinite;
+        -webkit-animation: ${rotateAnimation} 13s linear infinite;
         
         img{
             width: 100%;
@@ -217,7 +278,7 @@ const MainTitleIn = styled.div`
     z-index: 100;
 
     .ment{
-        padding-top: 35vh;
+        padding-top: 40vh;
         margin-bottom: 5vw;
         font-size: 0.9rem;
         text-align: center;
@@ -290,12 +351,64 @@ const MainTitleIn = styled.div`
         width: 1560px;
         margin: 0 auto;
         .ment{
-            padding-top: 45vh;
             margin-bottom: 2vw;
             
             p:first-child{
                 margin-right: 8px;
             };
         };
+    }
+`;
+const Scrolling = styled(motion.div)`
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding-top: 60px;
+    z-index: 200;
+
+    .arrow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin-left: -23px;
+        border: 2px solid var(--sub-blue);
+        border-radius: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &::after {
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-left: 2px solid var(--sub-blue);
+            border-bottom: 2px solid var(--sub-blue);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            box-sizing: border-box;
+            -webkit-animation: ${arrowAnimation} 1.5s infinite;
+            animation: ${arrowAnimation} 1.5s infinite;
+        }
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            content: '';
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 0 0 0 rgba(124, 197, 250, 0.2);
+            border-radius: 100%;
+            opacity: 0;
+            -webkit-animation: ${roundAnimation} 3s infinite;
+            animation: ${roundAnimation} 3s infinite;
+            box-sizing: border-box;
+            transform: translate(-50%, -50%);
+        }
     }
 `;
