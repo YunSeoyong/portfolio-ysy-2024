@@ -124,6 +124,7 @@ export default Portfolio;
 
 const PortfolioWrap = styled.section`
     position: relative;
+    height: 100vh;
     height: 100dvh;
     overflow: hidden;
 `;

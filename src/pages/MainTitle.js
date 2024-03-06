@@ -166,6 +166,7 @@ export default MainTitle;
 
 const MainTitleWrap = styled(motion.section)`
     position: relative;
+    height: 100vh;
     height: 100dvh;
     overflow: hidden;
 `

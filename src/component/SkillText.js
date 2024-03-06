@@ -16,8 +16,8 @@ const SkillText = ({id, name, text}) => {
 export default SkillText;
 
 const SkillTextWrap = styled.div`
-    position: fixed;
-    bottom: 10%;
+    position: absolute;
+    top: 60%;
     left: 50%;
     transform: translateX(-50%);
     width: 60vw;
@@ -55,8 +55,7 @@ const SkillTextWrap = styled.div`
         }
     }
     @media screen and (min-width:1024px){
-        top: 60%;
-        bottom: auto;
+        top: 55%;
         left: auto;
         right: 20px;
         width: 36vw;

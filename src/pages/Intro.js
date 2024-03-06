@@ -83,6 +83,7 @@ export default Intro;
 
 const IntroWrap = styled.section`
     position: relative;
+    height: 100vh;
     height: 100dvh;
     overflow: hidden;
 `;
