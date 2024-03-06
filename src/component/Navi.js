@@ -10,14 +10,12 @@ const navList = [
 const Navi = ({
     type,
     isOpen,
-    currentPage,
-    setCurrentPage,
-    sectionRef,
+    swiperRef,
+    pageNum,
 }) => {
 
     const onClickNavi = (id) => {
-        sectionRef.current[id].scrollIntoView({behavior: "smooth"});
-        setCurrentPage(id);
+        swiperRef.current?.swiper?.slideTo(id, 600, false);
     };
 
     return (
@@ -27,7 +25,7 @@ const Navi = ({
             <ul>
                 {navList.map((it) => (
                     <li key={it.id} onClick={() => {onClickNavi(it.id)}}
-                        className={currentPage === it.id ? "active" : ""}
+                        className={pageNum === it.id ? "active" : ""}
                     >
                         <p>{it.text}</p>
                         <span className="bar"></span>

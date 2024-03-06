@@ -1,6 +1,8 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import styled from "styled-components";
+import Typist from 'react-typist-component';
+import { useSwiperSlide } from "swiper/react";
 
 import Triangle from "../component/Triangle";
 import HexaIcons from "../component/HexaIcons";
@@ -64,6 +66,12 @@ const Skill = () => {
     const [isModal, setIsModal] = useState(false);
     const [select, setSelect] = useState({});
     const [text, setText] = useState({});
+    const [typingStarted, setTypingStarted] = useState(false);
+    const swiperSlide = useSwiperSlide();
+
+    useEffect(() => {
+        swiperSlide.isActive ? setTypingStarted(true) : setTypingStarted(false);
+    }, [swiperSlide]);
 
     const mouseoverIcon = (item) => {
         setIsModal(true);
@@ -78,7 +86,7 @@ const Skill = () => {
     const itemTitle = {
         hidden: { opacity: 0, y: 20 },
         show: { 
-            opacity: 1, 
+            opacity: 0.8, 
             y: 0,
             transition: {
                 duration: 1.3,
@@ -109,6 +117,15 @@ const Skill = () => {
                 >
                     Skill
                 </motion.h2>
+                <Type>    
+                    {typingStarted && 
+                        <Typist
+                            startDelay={1000}
+                        >
+                            <p className="type">Hover or Touch!</p>
+                        </Typist>
+                    }
+                </Type>
                 <div className="content">
                     <div className="hexagon">
                         {
@@ -172,7 +189,7 @@ const SkillIn = styled.div`
 
     .content{
         position: absolute;
-        top: 45%;
+        top: 39%;
         left: 50%;
         width: 310px;
         height: 270px;
@@ -378,5 +395,27 @@ const SkillIn = styled.div`
                 height: 65px;
             }
         }
+    }
+`;
+
+const Type = styled.div`
+    position: absolute;
+    top: 90px;
+    right: 0;
+
+    .type{
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--sub-blue);
+        opacity: 0.8;
+    }
+
+    @media screen and (min-width:768px) {
+        top: 130px;
+        right: 30px;
+    }
+    @media screen and (min-width:1024px) {
+        top: 300px;
+        right: 10%;
     }
 `;

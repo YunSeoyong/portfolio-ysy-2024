@@ -120,7 +120,7 @@ const ProjectWrap = styled.div`
             }
             &::-webkit-scrollbar-thumb {
                 height: 30px;
-                background: var(--sub-blue);
+                background: rgba(126, 201, 255, 0.4);
                 border-radius: 50px;
             }
             &::-webkit-scrollbar-track {

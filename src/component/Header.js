@@ -6,9 +6,8 @@ import styled from "styled-components";
 import Navi from "./Navi";
 
 const Header = ({
-    currentPage,
-    setCurrentPage,
-    sectionRef,
+    swiperRef,
+    pageNum,
 }) => {
     const menuRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +23,7 @@ const Header = ({
     }, [isOpen]);
 
     const onClickLogo = () => {
-        sectionRef.current[0].scrollIntoView({behavior: "smooth"})
-        setCurrentPage(0);
+        swiperRef.current?.swiper?.slideTo(0, 600, false);
     }
 
     return (
@@ -46,13 +44,15 @@ const Header = ({
                         />
                     </p>
                     <Navi 
-                        type={'mo'} isOpen={isOpen} setCurrentPage={setCurrentPage}
-                        sectionRef={sectionRef} currentPage={currentPage}
+                        type={'mo'} isOpen={isOpen}
+                        swiperRef={swiperRef}
+                        pageNum={pageNum}
                     />
                 </div>
                 <Navi 
-                    type={'pc'} setCurrentPage={setCurrentPage} 
-                    sectionRef={sectionRef} currentPage={currentPage}
+                    type={'pc'}
+                    swiperRef={swiperRef}
+                    pageNum={pageNum}
                 />
             </div>
         </HeaderWrap>

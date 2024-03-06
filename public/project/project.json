@@ -52,7 +52,7 @@
         "title" : "Triple",
         "subtitle" : "Team Project, 기여도 35%",
         "stack" : ["React", "CSS3", "styled components", "Javascript", "illustrator"],
-        "explanation" : "프론트엔드 4명되었으며, 팀장으로 참여하였습니다. 아이콘 제작, 전체적인 ui 및 기술 구현 기획, 브랜치 병합 후의 정리, 바텀 네비게이션,라우터를 이용한 페이지 이동, 메인페이지의 20%, 전역 검색 컴포넌트, 도시 선택 컴포넌트, date-range-picker 라이브러리를 활용한 날짜 선택 컴포넌트, 재사용 가능한 모달창, 여행 일정을 생성 및 관리할 수 있게끔 reducer를 활용하는 파트를 맡았습니다. 백엔드의 부재가 아쉬웠던 프로젝트로, 서버를 구축하고, 데이터베이스를 활용하는 것에 대해 학습할 필요성을 느낀 프로젝트였습니다.",
+        "explanation" : "프론트엔드 4명되었으며, 팀장으로 참여하였습니다. 아이콘 제작, 전체적인 구현 기획, 브랜치 병합 후 정리, 바텀 네비, 페이지 이동, 메인페이지 20%, 전역 검색 컴포넌트, 도시 선택 컴포넌트, date-range-picker 라이브러리를 활용한 날짜 선택 컴포넌트, 재사용 가능 모달, 여행 일정을 생성 및 삭제할 수 있게끔 reducer를 활용하는 파트를 맡았습니다.",
         "photomo" : "pjt-teamtriple-mo.png",
         "photota" : "pjt-teamtriple-ta.png",
         "photopc" : "pjt-teamtriple-ta.png",
